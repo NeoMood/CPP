@@ -5,29 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/10 18:14:13 by sgmira            #+#    #+#              #
-#    Updated: 2023/01/11 14:21:26 by sgmira           ###   ########.fr        #
+#    Created: 2023/01/11 14:33:12 by sgmira            #+#    #+#              #
+#    Updated: 2023/01/11 14:34:21 by sgmira           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = BraiiiiiiinnnzzzZ
+NAME = HiThisIsBrain
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-SRC =  main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
-
+SRC =  main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 # %.o: %.cpp 
 # 	$(CC) $(FLAGS) -c $< -o $@
 	
 $(NAME): $(OBJ) 
-	$(CC) $(FLAGS) $(OBJ) -I Zombie.hpp  -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 all: $(NAME)
-
 
 clean:
 	$(RM) $(OBJ)   

@@ -6,25 +6,28 @@
 #    By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 18:14:13 by sgmira            #+#    #+#              #
-#    Updated: 2023/01/10 20:29:45 by sgmira           ###   ########.fr        #
+#    Updated: 2023/01/11 14:20:56 by sgmira           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = MoarBrainz
 
 CC = c++
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
 SRC =  main.cpp zombieHorde.cpp Zombie.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
+# %.o: %.cpp 
+# 	$(CC) $(FLAGS) -c $< -o $@
+	
+$(NAME): $(OBJ) 
+	$(CC) $(FLAGS) $(OBJ) -I Zombie.hpp  -o $(NAME)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) 
-	$(CC) $(FLAGS) $(SRC) -I Zombie.hpp  -o $(NAME)
 
 clean:
 	$(RM) $(OBJ)   
