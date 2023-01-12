@@ -6,14 +6,14 @@
 #    By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 14:33:12 by sgmira            #+#    #+#              #
-#    Updated: 2023/01/11 14:34:21 by sgmira           ###   ########.fr        #
+#    Updated: 2023/01/12 20:11:30 by sgmira           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = HiThisIsBrain
 
 CC = c++
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
 SRC =  main.cpp
