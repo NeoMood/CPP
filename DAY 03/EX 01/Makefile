@@ -6,19 +6,20 @@
 #    By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 17:43:25 by sgmira            #+#    #+#              #
-#    Updated: 2023/01/17 17:44:04 by sgmira           ###   ########.fr        #
+#    Updated: 2023/01/17 22:52:19 by sgmira           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = claptrap
+NAME = scavtrap
 
 CC = c++
 CC_FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
-INL = ClapTrap.hpp 
+INL = ClapTrap.hpp ScavTrap.hpp
 
 SRCS = main.cpp \
 	   ClapTrap.cpp \
+	   ScavTrap.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 

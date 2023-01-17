@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 18:03:45 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/17 17:43:04 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/01/17 22:15:49 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 
 class ClapTrap
 {
-    private:
+    protected:
         std::string Name;
         int Hit_points;
         int Energy_points;
         int Attack_damage;
         
     public:
+        ClapTrap();
         ClapTrap(std::string name);
         ~ClapTrap();
         void attack(const std::string& target);

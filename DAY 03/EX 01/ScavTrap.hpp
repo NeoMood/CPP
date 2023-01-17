@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 18:04:31 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/17 18:05:45 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/01/17 22:21:47 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@
 # include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap {
-    
+    public:
+        ScavTrap();
+        ScavTrap(std::string name);
+        void guardGate();
+        ~ScavTrap();
 };
-
 
 #endif
