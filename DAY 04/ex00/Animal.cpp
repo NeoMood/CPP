@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:18:05 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/18 22:13:04 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/01/20 20:29:21 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,19 @@
 
 Animal::Animal()
 {
+	std::cout << "Animal Constructor Called" << std::endl;
 }
 
-Animal::Animal( const Animal & src )
-{
-}
+Animal::Animal(const std::string &type) : type(type) {}
 
-std::string& Animal::getType()
-{
-    return type;
-}
+std::string Animal::getType() const { return type; }
 
-void Animal::makeSound(){};
+void Animal::makeSound() const{};
 
-Animal &				Animal::operator=( Animal const & rhs )
-{
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+Animal& Animal::operator=(const Animal& other) {
+	if (this != &other) {
+		type = other.type;
+	}
 	return *this;
 }
 
@@ -44,4 +38,5 @@ Animal &				Animal::operator=( Animal const & rhs )
 
 Animal::~Animal()
 {
+	std::cout << "Animal Destructor Called" << std::endl;
 }

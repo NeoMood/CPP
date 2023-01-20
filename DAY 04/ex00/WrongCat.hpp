@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 22:08:06 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/20 20:22:25 by sgmira           ###   ########.fr       */
+/*   Created: 2023/01/20 22:47:39 by sgmira            #+#    #+#             */
+/*   Updated: 2023/01/20 23:44:19 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-int main()
-{
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-    // ...
-    return 0;
+# include <iostream>
+# include <string>
+
+# include "Animal.hpp"
+
+class WrongCat{
+    
 }
+
+#endif
