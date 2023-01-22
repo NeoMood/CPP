@@ -5,22 +5,24 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/23 00:45:03 by sgmira            #+#    #+#              #
-#    Updated: 2023/01/23 00:45:56 by sgmira           ###   ########.fr        #
+#    Created: 2023/01/21 15:59:47 by sgmira            #+#    #+#              #
+#    Updated: 2023/01/21 16:01:09 by sgmira           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = PB
 
 CC = c++
 CC_FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
+INL = PhoneBook.hpp Contact.hpp 
 
-SRCS = megaphone.cpp
+SRCS = PhoneBook.cpp \
+		Contact.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
-%.o: %.cpp 
+%.o: %.cpp $(INL)
 	$(CC) $(CC_FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)

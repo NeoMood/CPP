@@ -1,5 +1,23 @@
-#include "phonebook.hpp"
-int i = 1;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/21 16:22:50 by sgmira            #+#    #+#             */
+/*   Updated: 2023/01/23 00:46:38 by sgmira           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
+
+int i = 0;
+
+Contact* PhoneBook::get_cont(){
+    return(cont);
+}
 
 void phbprint(void)
 {
@@ -41,12 +59,15 @@ void display_cont(Contact *contact)
     std::string str;
     search_menu();
     int contactCount = 0;
-    int j = 1;
-    while (j <= 8 && !contact[j].get_first_name().empty())
+    int j = 0;
+    while (contactCount < 8)
     {
-        if (contactCount < 8 || !contact[j].get_first_name().empty()) {
+        if (j >= 8) {
+            break;
+        }
+        if (!contact[j].get_first_name().empty()) {
             std::cout << "|"
-                    << "    " << j << "     "
+                    << "    " << j + 1 << "     "
                     << "|";
             str = contact[j].get_first_name();
             if (str.length() <= 10)
@@ -81,11 +102,13 @@ void display_cont(Contact *contact)
         }
         j++;
     }
-    if (i == 0)
+    if (contactCount == 0)
         std::cout << "There is no contact in your library!" << std::endl;
     else
-        std::cout << "Pick a number to diplay the contact:" << std::endl;
+        std::cout << "Pick a number to display the contact:" << std::endl;
 }
+
+
 
 void display_cont2(Contact *contact)
 {
@@ -94,55 +117,35 @@ void display_cont2(Contact *contact)
     j = 0;
     while (getline(std::cin, str))
     {
-        if (atoi(str.c_str()) <= 0)
+        if((atoi(str.c_str()) > 0 && atoi(str.c_str()) < 9))
         {
-            std::cout << atoi(str.c_str());
+            if (contact[atoi(str.c_str()) - 1].get_first_name().empty())
+            {
+                std::cout << "This is not a valid number!" << std::endl;
+                break;
+            }
+            else if (str.empty())
+                std::cout << "Please pick a number" << std::endl;
+            else
+            {
+                j = atoi(str.c_str()) - 1;
+                std::cout << "---------------------------------------------" << std::endl;
+                std::cout << "First Name : " << contact[j].get_first_name() << std::endl;
+                std::cout << "Last Name : " << contact[j].get_last_name() << std::endl;
+                std::cout << "NickName : " << contact[j].get_nickname() << std::endl;
+                std::cout << "Phone Number : " << contact[j].get_phone_number() << std::endl;
+                std::cout << "Darkest Secret : " << contact[j].get_darkest_secret() << std::endl;
+                std::cout << "---------------------------------------------" << std::endl;
+                break;
+            }
+        }
+        else 
+        {
             std::cout << "This is not a valid number!" << std::endl;
-        }
-        else if (str.empty())
-            std::cout << "Please pick a number" << std::endl;
-        else
-        {
-            j = atoi(str.c_str());
-            break;
+                break;
         }
     }
-    std::cout << "---------------------------------------------" << std::endl;
-    std::cout << "|  INDEX   |  F.NAME  |  L.NAME  |  N.NAME  |" << std::endl;
-    std::cout << "---------------------------------------------" << std::endl;
-    std::cout << "|"
-              << "    " << j << "     "
-              << "|";
-    str = contact[j].get_first_name();
-    if (str.length() <= 10)
-    {
-        std::cout << str;
-        white_space(str.length());
-    }
-    else
-        std::cout << str.substr(0, 8) << "."
-                  << "|";
-    str = contact[j].get_last_name();
-    if (str.length() <= 10)
-    {
-        std::cout << str;
-        white_space(str.length());
-    }
-    else
-        std::cout << str.substr(0, 8) << "."
-                  << "|";
-    str = contact[j].get_nickname();
-    if (str.length() <= 10)
-    {
-        std::cout << str;
-        white_space(str.length());
-    }
-    else
-        std::cout << str.substr(0, 8) << "."
-                  << "|";
-    std::cout << std::endl;
-    std::cout << "---------------------------------------------" << std::endl;
-    std::cout << "Press space to continue ..." << std::endl;
+    std::cout << "Press enter to continue ..." << std::endl;
 }
 
 void add_contact(Contact *contact)
@@ -194,7 +197,7 @@ void add_contact(Contact *contact)
         if (str[0] != '\0')
 			break ;
     }
-    std::cout << "Press space to continue ..." << std::endl;
+    std::cout << "Press enter to continue ..." << std::endl;
 }
 
 int main()
@@ -213,7 +216,7 @@ int main()
             if (str == "ADD")
             {
                 if (i == 8)
-                    i = 1;
+                    i = 0;
                 add_contact(pbook.get_cont());
                 i++;
             }
@@ -229,3 +232,4 @@ int main()
         }
     }
 }
+
