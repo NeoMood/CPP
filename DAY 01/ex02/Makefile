@@ -6,7 +6,7 @@
 #    By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 14:33:12 by sgmira            #+#    #+#              #
-#    Updated: 2023/01/12 20:11:30 by sgmira           ###   ########.fr        #
+#    Updated: 2023/01/25 18:57:47 by sgmira           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ RM = rm -f
 SRC =  main.cpp
 OBJ = $(SRC:.cpp=.o)
 
-# %.o: %.cpp 
-# 	$(CC) $(FLAGS) -c $< -o $@
+%.o: %.cpp 
+	$(CC) $(FLAGS) -c $< -o $@
 	
 $(NAME): $(OBJ) 
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
