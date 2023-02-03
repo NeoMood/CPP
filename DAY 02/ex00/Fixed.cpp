@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 18:09:52 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/14 18:41:09 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/01/30 16:16:45 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ Fixed::~Fixed()
 	std::cout << "Default Destructor called " << std::endl;
 }
 
-Fixed &				Fixed::operator=( Fixed const & op )
+Fixed &Fixed::operator=( Fixed const & op )
 {
-	
 	std::cout << "Assignment operator called " << std::endl;
 	this->setRawBits(op.getRawBits());
 	return *this;

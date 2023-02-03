@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:23:29 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/25 23:31:34 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/01/26 20:33:43 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int main(int ac, char **av)
             save.insert(pos, s2);
             pos += s2.length();
         }
-        outfile << save << std::endl;
+        outfile << save;
         file.close();
         outfile.close();
     }

@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 18:09:56 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/14 18:43:18 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/01/28 20:51:21 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ class Fixed
 		Fixed &	operator=( Fixed const & op );
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
-
 };
 
 // const int Fixed::fb = 8;

@@ -5,18 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 22:02:20 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/20 20:30:20 by sgmira           ###   ########.fr       */
+/*   Created: 2023/02/01 17:09:55 by sgmira            #+#    #+#             */
+/*   Updated: 2023/02/01 17:32:12 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : Animal("Cat") {
-	std::cout << "Cat Constructor Called" << std::endl;
+// Constructors
+// Cat::Cat()
+// {
+// 	std::cout << "\e[0;33mDefault Constructor called of Cat\e[0m" << std::endl;
+// }
+
+Cat::Cat(const Cat &copy)
+{
+	(void) copy;
+	std::cout << "\e[0;33mCopy Constructor called of Cat\e[0m" << std::endl;
 }
+
+Cat::Cat() : Animal("Cat") {
+	std::cout << "\e[0;33mDefault Constructor called of Cat\e[0m" << std::endl;
+}
+
 void Cat::makeSound() const { std::cout << "Meow!" << std::endl; }
 
-Cat::~Cat(){
-	std::cout << "Cat Destructor Called" << std::endl;
+// Destructor
+Cat::~Cat()
+{
+	std::cout << "\e[0;31mDestructor called of Cat\e[0m" << std::endl;
 }
+
+
+// Operators
+Cat & Cat::operator=(const Cat &assign)
+{
+	(void) assign;
+	return *this;
+}
+

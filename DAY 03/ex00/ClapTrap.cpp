@@ -6,22 +6,29 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:42:38 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/18 15:35:29 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/01/30 19:22:11 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(){
-    std::cout << "Claptrap Default Constructor Called" << std::endl;
+    std::cout << "\e[0;33mDefault Constructor called of ClapTrap\e[0m" << std::endl;
     Name = "Clap";
     Hit_points = 10;
     Energy_points = 10;
     Attack_damage = 0;
 }
 
+ClapTrap::ClapTrap(const ClapTrap &copy)
+{
+	(void) copy;
+	std::cout << "\e[0;33mCopy Constructor called of ClapTrap\e[0m" << std::endl;
+}
+
+
 ClapTrap::ClapTrap(std::string name) : Hit_points(10), Energy_points(10), Attack_damage(0) {
-    std::cout << "ClapTrap Parameterized Constructor Called" << std::endl;
+    std::cout << "\e[0;33mClapTrap Parameterized Constructor Called\e[0m" << std::endl;
     Name = name;
 }
 
@@ -38,7 +45,7 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    this->Hit_points = this->Hit_points - amount; 
+    this->Hit_points = this->Hit_points - amount;
     std::cout << "ClapTrap " << Name << " loses " << amount << " hit points" << std::endl;
 }
 
@@ -54,7 +61,13 @@ void ClapTrap::beRepaired(unsigned int amount)
     }
 }
 
+ClapTrap & ClapTrap::operator=(const ClapTrap &assign)
+{
+	(void) assign;
+	return *this;
+}
+
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap Destructor Called" << std::endl;
+    std::cout << "\e[0;31mDestructor called of ClapTrap\e[0m" << std::endl;
 }

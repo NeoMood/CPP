@@ -5,18 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 20:45:15 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/20 20:32:27 by sgmira           ###   ########.fr       */
+/*   Created: 2023/02/01 17:15:17 by sgmira            #+#    #+#             */
+/*   Updated: 2023/02/01 17:15:58 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
+// Constructors
+Dog::Dog()
+{
+	std::cout << "\e[0;33mDefault Constructor called of Dog\e[0m" << std::endl;
+}
 
-Dog::Dog() : Animal("Dog") {
-	std::cout << "Dog Constructor Called" << std::endl;
+Dog::Dog(const Dog &copy)
+{
+	(void) copy;
+	std::cout << "\e[0;33mCopy Constructor called of Dog\e[0m" << std::endl;
 }
+
 void Dog::makeSound() const { std::cout << "Woof!" << std::endl; }
-Dog::~Dog(){
-	std::cout << "Dog Destructor Called" << std::endl;
+
+// Destructor
+Dog::~Dog()
+{
+	std::cout << "\e[0;31mDestructor called of Dog\e[0m" << std::endl;
 }
+
+
+// Operators
+Dog & Dog::operator=(const Dog &assign)
+{
+	(void) assign;
+	return *this;
+}
+

@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 18:03:45 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/17 22:15:49 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/01/30 19:30:17 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class ClapTrap
     public:
         ClapTrap();
         ClapTrap(std::string name);
+        ClapTrap(const ClapTrap &copy);
+        ClapTrap & operator=(const ClapTrap &assign);
         ~ClapTrap();
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 22:02:27 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/20 20:30:38 by sgmira           ###   ########.fr       */
+/*   Created: 2023/02/01 16:59:12 by sgmira            #+#    #+#             */
+/*   Updated: 2023/02/01 17:26:40 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,21 @@
 # include <string>
 # include "Animal.hpp"
 
-
-class Cat : public Animal {
-public:
-    Cat();
-    void makeSound() const;
-	~Cat();
+class Cat : public Animal
+{
+	public:
+		// Constructors
+		Cat();
+		Cat(const Cat &copy);
+		void makeSound() const;
+		// Destructor
+		~Cat();
+		
+		// Operators
+		Cat & operator=(const Cat &assign);
+		
+	private:
+		
 };
-// std::ostream&	operator<<( std::ostream & o, Cat const & i );
-
 
 #endif

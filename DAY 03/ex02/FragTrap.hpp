@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:16:15 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/18 15:31:05 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/03 17:47:24 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ class FragTrap : public ClapTrap{
     public:
         FragTrap();
         FragTrap(std::string name);
+        FragTrap(const FragTrap &copy);
         void highFivesGuys(void);
+        FragTrap & operator=(const FragTrap &assign);
         ~FragTrap();
 };
 #endif

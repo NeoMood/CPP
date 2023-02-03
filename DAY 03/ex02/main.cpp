@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:55:54 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/18 15:30:55 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/02 22:27:34 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,28 @@ int	main()
 {
 
 	ClapTrap clap("Saad");
-	ScavTrap scap("Gmira");
-	FragTrap frap("sgmira");
+	ScavTrap scav("Gmira");
+	FragTrap frag("sgmira");
 	
 	std::cout << std::endl;
 	
 	clap.attack("Gmira");
-	scap.takeDamage(0);
-	scap.beRepaired(20);
+	scav.takeDamage(0);
+	scav.beRepaired(20);
 	
 	std::cout << std::endl;
 	
-	scap.guardGate();
-	scap.attack("Saad");
+	scav.guardGate();
+	scav.attack("Saad");
+	frag.attack("Saad");
 	clap.takeDamage(20);
 	clap.beRepaired(20);
 	
 	std::cout << std::endl;
 
-	scap.attack("sgmira");
-	frap.takeDamage(20);
-	frap.highFivesGuys();
+	scav.attack("sgmira");
+	frag.takeDamage(20);
+	frag.highFivesGuys();
 
 	std::cout << std::endl;
 	

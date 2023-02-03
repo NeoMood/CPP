@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:15:04 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/10 21:49:41 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/01/26 20:52:48 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main() {
     Zombie *zombie;
-    zombie = zombieHorde(6, "harawkan");
+    zombie = zombieHorde(6, "ooga booga");
     delete[] zombie;
     return 0;
 }

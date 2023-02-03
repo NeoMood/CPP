@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 19:18:20 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/20 20:02:51 by sgmira           ###   ########.fr       */
+/*   Created: 2023/02/01 16:38:13 by sgmira            #+#    #+#             */
+/*   Updated: 2023/02/01 16:38:14 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,24 @@
 # include <iostream>
 # include <string>
 
-// class Animal
-// {
-// 	public:
-
-// 		Animal();
-// 		Animal( Animal const & src );
-// 		Animal&	operator=( Animal const & rhs );
-// 		std::string& getType();
-// 		void makeSound();
-// 		~Animal();
-
-// 	protected:
-// 		std::string type;
-
-// };
-
-class Animal {
+class Animal
+{
+	public:
+		// Constructors
+		Animal();
+		Animal(const Animal &copy);
+		Animal(const std::string &type);
+		
+		// Destructor
+		~Animal();
+		
+		// Operators
+		Animal & operator=(const Animal &assign);
+		virtual void makeSound() const;
+        std::string getType() const;
+		
     protected:
         std::string type;
-    public:
-        Animal();
-        Animal(const std::string &type);
-        ~Animal();
-		Animal& operator=(const Animal& other);
-        virtual void makeSound() const;
-        std::string getType() const;
 };
-// std::ostream &			operator<<( std::ostream & o, Animal const & i );
 
-#endif /* ********************************************************** ANIMAL_H */
+#endif

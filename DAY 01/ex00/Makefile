@@ -6,14 +6,14 @@
 #    By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 18:14:13 by sgmira            #+#    #+#              #
-#    Updated: 2023/01/25 18:55:48 by sgmira           ###   ########.fr        #
+#    Updated: 2023/01/26 20:39:58 by sgmira           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = BraiiiiiiinnnzzzZ
 
 CC = c++
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
 SRC =  main.cpp newZombie.cpp randomChump.cpp Zombie.cpp

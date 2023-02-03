@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 18:09:52 by sgmira            #+#    #+#             */
-/*   Updated: 2023/01/15 23:29:12 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/01/28 20:56:40 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Fixed::Fixed(const int n) {
 
 Fixed::Fixed(const float f) {
 	std::cout << "Float constructor called" << std::endl;
-    fp = (int)(f * (1 << fb));
+    fp = f * (1 << fb);
 }
 
 Fixed::~Fixed()
