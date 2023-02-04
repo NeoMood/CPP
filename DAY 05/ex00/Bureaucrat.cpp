@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/04 23:45:03 by sgmira            #+#    #+#             */
+/*   Updated: 2023/02/04 23:45:04 by sgmira           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 // Constructors
@@ -63,7 +75,7 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat &assign)
 
 std::ostream& operator<<(std::ostream& myout ,Bureaucrat& bur)
 {
-    myout << bur.getname() << ",  bureaucrat grade " << bur.getgrade() << std::endl;
+    myout << "Bureaucrat "<< bur.getname() << ", got grade " << bur.getgrade() << std::endl;
     return myout;
 }
 
