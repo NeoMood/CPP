@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 16:55:54 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/03 23:19:28 by sgmira           ###   ########.fr       */
+/*   Created: 2023/02/01 17:58:49 by sgmira            #+#    #+#             */
+/*   Updated: 2023/02/04 17:47:34 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-int main()
+# include <iostream>
+# include <string>
+# include "Animal.hpp"
+# include "Brain.hpp"
+
+class Dog  : public Animal 
 {
-	ClapTrap clap("Jack");
+	public:
+		// Constructors
+		Dog();
+		Dog(const Dog &copy);
+		void makeSound() const;
+		// Destructor
+		~Dog();
+		
+		// Operators
+		Dog & operator=(const Dog &assign);
+		
+	private:
+		Brain* brain;
+};
 
-	std::cout << std::endl;
-	
-	clap.attack("Mike");
-	clap.takeDamage(10);
-	clap.beRepaired(20);
-	
-	std::cout << std::endl;
-	
-	clap.attack("ssss");
-	clap.takeDamage(20);
-	clap.beRepaired(5);
-	
-	std::cout << std::endl;
-
-	return 0;
-}
+#endif

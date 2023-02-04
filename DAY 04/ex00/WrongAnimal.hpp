@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 16:38:13 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/04 16:45:00 by sgmira           ###   ########.fr       */
+/*   Created: 2023/02/04 15:46:43 by sgmira            #+#    #+#             */
+/*   Updated: 2023/02/04 17:04:32 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <iostream>
 # include <string>
 
-class Animal
+class WrongAnimal 
 {
 	public:
 		// Constructors
-		Animal();
-		Animal(const Animal &copy);
-		Animal(const std::string &type);
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal &copy);
+		WrongAnimal(const std::string &type);
 		
 		// Destructor
-		virtual ~Animal();
+		~WrongAnimal();
 		
 		// Operators
-		Animal & operator=(const Animal &assign);
-		virtual void makeSound() const;
-        std::string getType() const;
+		WrongAnimal & operator=(const WrongAnimal &assign);
+		void makeSound() const;
+		std::string getType() const;
+		
 		
     protected:
-        std::string type;
+        std::string type;	
 };
 
 #endif

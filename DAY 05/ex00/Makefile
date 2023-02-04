@@ -5,24 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/01 17:31:32 by sgmira            #+#    #+#              #
-#    Updated: 2023/02/04 18:04:02 by sgmira           ###   ########.fr        #
+#    Created: 2023/01/17 17:43:25 by sgmira            #+#    #+#              #
+#    Updated: 2023/02/04 23:30:07 by sgmira           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = animal
+NAME = bureaucrat
 
 CC = c++
 CC_FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
-INL = Animal.hpp Cat.hpp Dog.hpp WrongCat.hpp WrongAnimal.hpp
+INL = Bureaucrat.hpp 
 
-SRCS =	Animal.cpp\
-		WrongAnimal.cpp\
-		Cat.cpp\
-		WrongCat.cpp\
-		Dog.cpp\
-		main.cpp\
+SRCS = main.cpp \
+	   Bureaucrat.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 

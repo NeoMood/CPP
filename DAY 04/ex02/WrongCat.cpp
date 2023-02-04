@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 17:15:17 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/04 17:43:05 by sgmira           ###   ########.fr       */
+/*   Created: 2023/02/04 16:03:07 by sgmira            #+#    #+#             */
+/*   Updated: 2023/02/04 16:14:05 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
 // Constructors
-Dog::Dog() : Animal("Dog") 
+WrongCat::WrongCat() : WrongAnimal("Cat") 
 {
-	std::cout << "\e[0;33mDefault Constructor called of Dog\e[0m" << std::endl;
+	std::cout << "\e[0;33mDefault Constructor called of WrongCat\e[0m" << std::endl;
 }
 
-Dog::Dog(const Dog &copy)
+WrongCat::WrongCat(const WrongCat &copy)
 {
 	(void) copy;
-	std::cout << "\e[0;33mCopy Constructor called of Dog\e[0m" << std::endl;
+	std::cout << "\e[0;33mCopy Constructor called of WrongCat\e[0m" << std::endl;
 }
 
-void Dog::makeSound() const { std::cout << "Woof!" << std::endl; }
+void WrongCat::makeSound() const { std::cout << "Meow!!" << std::endl; }
 
 // Destructor
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-	std::cout << "\e[0;31mDestructor called of Dog\e[0m" << std::endl;
+	std::cout << "\e[0;31mDestructor called of WrongCat\e[0m" << std::endl;
 }
 
 
 // Operators
-Dog & Dog::operator=(const Dog &assign)
+WrongCat & WrongCat::operator=(const WrongCat &assign)
 {
 	(void) assign;
 	return *this;

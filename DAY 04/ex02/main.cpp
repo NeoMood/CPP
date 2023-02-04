@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:30:51 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/04 16:45:44 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/04 19:27:26 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,45 @@
 #include "WrongCat.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "Brain.hpp"
 
 int main()
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    const WrongAnimal* w = new WrongCat();
+    // const Animal* j = new Dog();
+    // const Animal* i = new Cat();
+    Dog j;
+    // delete j;//should not create a leak
+    // delete i;
 
-    
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); 
-    j->makeSound();
-    meta->makeSound();
-    w->makeSound();
-
-    delete meta;
-    delete j;
-    delete i;
-    delete w;
     return 0;
 }
+
+// int main()
+// {
+//     const int n = 100;
+//     Animal** animals = new Animal*[n];
+
+//     for (int i = 0; i < n / 2; i++)
+//     {
+//         animals[i] = new Dog();
+//     }
+//     for (int i = n / 2; i < n; i++)
+//     {
+//         animals[i] = new Cat();
+//     }
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         std::cout << animals[i]->getType() << " " << std::endl;
+//         animals[i]->makeSound();
+//     }
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         delete animals[i];
+//     }
+
+//     delete[] animals;
+
+//     return 0;
+// }

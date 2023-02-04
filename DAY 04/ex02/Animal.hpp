@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:38:13 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/04 16:45:00 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/04 19:27:53 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@ class Animal
 		
 		// Destructor
 		virtual ~Animal();
-		
 		// Operators
 		Animal & operator=(const Animal &assign);
-		virtual void makeSound() const;
-        std::string getType() const;
+		virtual void makeSound() const = 0;
+        virtual std::string getType() const;
 		
     protected:
         std::string type;

@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 16:55:54 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/03 23:19:28 by sgmira           ###   ########.fr       */
+/*   Created: 2023/02/04 17:30:28 by sgmira            #+#    #+#             */
+/*   Updated: 2023/02/04 17:30:29 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-int main()
+# include <iostream>
+# include <string>
+
+class Brain
 {
-	ClapTrap clap("Jack");
+	public:
+		// Constructors
+		Brain();
+		Brain(const Brain &copy);
+		
+		// Destructor
+		~Brain();
+		
+		// Operators
+		Brain & operator=(const Brain &assign);
+		
+	private:
+		std::string ideas[100];
+};
 
-	std::cout << std::endl;
-	
-	clap.attack("Mike");
-	clap.takeDamage(10);
-	clap.beRepaired(20);
-	
-	std::cout << std::endl;
-	
-	clap.attack("ssss");
-	clap.takeDamage(20);
-	clap.beRepaired(5);
-	
-	std::cout << std::endl;
-
-	return 0;
-}
+#endif
