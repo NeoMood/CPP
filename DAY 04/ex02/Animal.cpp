@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:38:06 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/04 19:27:47 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/06 18:14:07 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Animal::Animal()
 
 Animal::Animal(const Animal &copy)
 {
-	(void) copy;
+	*this = copy;
 	std::cout << "\e[0;33mCopy Constructor called of Animal\e[0m" << std::endl;
 }
 

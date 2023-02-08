@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/06 16:14:52 by sgmira            #+#    #+#             */
+/*   Updated: 2023/02/06 16:20:25 by sgmira           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Brain.hpp"
 
 // Constructors
@@ -8,7 +20,7 @@ Brain::Brain()
 
 Brain::Brain(const Brain &copy)
 {
-	(void) copy;
+	*this = copy;
 	std::cout << "\e[0;33mCopy Constructor called of Brain\e[0m" << std::endl;
 }
 

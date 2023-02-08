@@ -6,11 +6,12 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 23:45:03 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/08 17:18:24 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/08 18:02:57 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+# include "Form.hpp"
 
 // Constructors
 Bureaucrat::Bureaucrat()
@@ -48,7 +49,7 @@ unsigned int Bureaucrat::getgrade()
 
 void Bureaucrat::increment_grade()
 {
-    if (this->grade - 1 < 1)
+	if (this->grade - 1 < 1)
         throw GradeTooHighException();
 	this->grade--;
 }
@@ -59,6 +60,20 @@ void Bureaucrat::decrement_grade()
         throw GradeTooLowException();
 	this->grade++;
 }
+
+void Bureaucrat::signForm(Form &form)
+{
+    try
+    {
+        form.beSigned(*this);
+        std::cout << this->getname() << " signed " << form.getname() << std::endl;
+    }
+    catch (const Form::GradeTooLowException &e)
+    {
+        std::cout << this->getname() << " couldn't sign " << form.getname() << " because " << e.what() << std::endl;
+    }
+}
+
 
 // Destructor
 Bureaucrat::~Bureaucrat()

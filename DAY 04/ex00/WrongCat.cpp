@@ -6,21 +6,22 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 16:03:07 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/04 16:14:05 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/07 16:48:58 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
 // Constructors
-WrongCat::WrongCat() : WrongAnimal("Cat") 
+WrongCat::WrongCat()
 {
+	type = "WrongCat";
 	std::cout << "\e[0;33mDefault Constructor called of WrongCat\e[0m" << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat &copy)
 {
-	(void) copy;
+	*this = copy;
 	std::cout << "\e[0;33mCopy Constructor called of WrongCat\e[0m" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:59:12 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/04 17:30:22 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/07 18:12:37 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Cat : public Animal
 		Cat();
 		Cat(const Cat &copy);
 		void makeSound() const;
+		void setType(std::string type);
 		// Destructor
 		~Cat();
 		

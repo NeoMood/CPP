@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:30:51 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/04 18:06:16 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/07 18:22:14 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,44 @@
 
 int main()
 {
-    const int n = 100;
-    Animal** animals = new Animal*[n];
+    Dog basic;
+    basic.setType("dog1");
 
-    for (int i = 0; i < n / 2; i++)
-    {
-        animals[i] = new Dog();
-    }
-    for (int i = n / 2; i < n; i++)
-    {
-        animals[i] = new Cat();
-    }
+    Dog tmp = basic;
+    tmp.setType("dog2");
 
-    for (int i = 0; i < n; i++)
-    {
-        std::cout << animals[i]->getType() << " " << std::endl;
-        animals[i]->makeSound();
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-        delete animals[i];
-    }
-
-    delete[] animals;
-
-    return 0;
+    std::cout << "I'm a " << basic.getType() << " " << std::endl;
+    std::cout << "I'm a " << tmp.getType() << " " << std::endl; 
 }
+
+// int main()
+// {
+    // const int n = 100;
+    // Animal** animals = new Animal*[n];
+
+
+    
+    // for (int i = 0; i < n / 2; i++)
+    // {
+    //     animals[i] = new Dog();
+    // }
+    // for (int i = n / 2; i < n; i++)
+    // {
+    //     animals[i] = new Cat();
+    // }
+
+    // for (int i = 0; i < n; i++)
+    // {
+    //     std::cout << animals[i]->getType() << " " << std::endl;
+    //     animals[i]->makeSound();
+    // }
+
+    // for (int i = 0; i < n; i++)
+    // {
+    //     delete animals[i];
+    // }
+
+    // delete[] animals;
+
+//     return 0;
+// }

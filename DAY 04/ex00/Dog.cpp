@@ -6,21 +6,22 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:15:17 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/04 17:43:05 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/07 16:48:04 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
 // Constructors
-Dog::Dog() : Animal("Dog") 
+Dog::Dog()
 {
+	type = "Dog";
 	std::cout << "\e[0;33mDefault Constructor called of Dog\e[0m" << std::endl;
 }
 
 Dog::Dog(const Dog &copy)
 {
-	(void) copy;
+	*this = copy;
 	std::cout << "\e[0;33mCopy Constructor called of Dog\e[0m" << std::endl;
 }
 
