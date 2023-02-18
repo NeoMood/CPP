@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:31:28 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/15 19:01:19 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/18 17:37:05 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,30 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
+    try
+	{
+		Bureaucrat				bob("Bob", 1);
+		Bureaucrat				bill("Bill", 142);
+		Intern someRandomIntern;
+		AForm * frm;
+		frm = someRandomIntern.makeForm("PresidentialPardon", "Henry");
+
+		frm->beSigned(bob);
+		frm->execute(bob);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << std::endl;
 	try
     {
         AForm *form = new ShrubberyCreationForm("SHRUBBERY");
         Bureaucrat bureaucrat("saad", 40);
-        (void) form;
         form->beSigned(bureaucrat);
         bureaucrat.signForm(*form);
         bureaucrat.executeForm(*form);
@@ -70,3 +86,56 @@ int main()
     
     return (0);
 }
+
+// int main()
+// {
+// 	// srand(time(NULL));
+// 	std::cout << std::endl;
+// 	try
+// 	{
+// 		Bureaucrat				bob("Bob", 1);
+// 		Bureaucrat				bill("Bill", 142);
+// 		Intern someRandomIntern;
+// 		AForm * rrf;
+// 		rrf = someRandomIntern.makeForm("PresidentialPardon", "Bender");
+
+// 		rrf->beSigned(bob);
+// 		rrf->execute(bob);
+// 	}
+// 	catch(const std::exception& e)
+// 	{
+// 		std::cerr << e.what() << '\n';
+// 	}
+// 	std::cout << std::endl;
+// 	try
+// 	{
+// 		Bureaucrat				bob("Bob", 1);
+// 		Bureaucrat				bill("Bill", 142);
+// 		PresidentialPardonForm	Presi("Presi");
+
+// 		Presi.beSigned(bill);
+// 		Presi.execute(bill);
+// 	}
+// 	catch(const std::exception& e)
+// 	{
+// 		std::cerr << e.what() << '\n';
+// 	}
+	
+// 	std::cout << std::endl;
+// 	try
+// 	{
+// 		Bureaucrat				bob("Bob", 1);
+// 		Bureaucrat				bill("Bill", 142);
+// 		RobotomyRequestForm		Robot("Robot");
+
+// 		Robot.beSigned(bill);
+// 		Robot.execute(bill);
+// 	}
+// 	catch(const std::exception& e)
+// 	{
+// 		std::cerr << e.what() << '\n';
+// 	}
+	
+
+// 	std::cout << std::endl;
+// }

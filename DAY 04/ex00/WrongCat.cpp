@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 16:03:07 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/07 16:48:58 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/16 21:14:48 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ WrongCat::~WrongCat()
 // Operators
 WrongCat & WrongCat::operator=(const WrongCat &assign)
 {
-	(void) assign;
+    if (this != &assign) {
+        type = assign.type;
+    }
 	return *this;
 }
 

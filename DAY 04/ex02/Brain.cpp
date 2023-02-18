@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:14:52 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/06 16:20:25 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/16 21:44:58 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ Brain::~Brain()
 // Operators
 Brain & Brain::operator=(const Brain &assign)
 {
-	(void) assign;
+    if (this == &assign) {
+        return *this;
+    }
 	return *this;
 }
 

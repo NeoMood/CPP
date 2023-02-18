@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:15:17 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/07 16:48:04 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/16 21:14:35 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ Dog::~Dog()
 // Operators
 Dog & Dog::operator=(const Dog &assign)
 {
-	(void) assign;
+    if (this != &assign) {
+        type = assign.type;
+    }
 	return *this;
 }
 

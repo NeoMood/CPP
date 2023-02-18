@@ -6,17 +6,13 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:09:55 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/07 18:14:31 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/16 21:46:45 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 //Constructors
-// Cat::Cat()
-// {
-// 	std::cout << "\e[0;33mDefault Constructor called of Cat\e[0m" << std::endl;
-// }
 
 Cat::Cat(const Cat &copy)
 {

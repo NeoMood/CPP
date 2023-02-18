@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:49:36 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/06 16:15:26 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/16 21:25:08 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ WrongAnimal::~WrongAnimal()
 // Operators
 WrongAnimal & WrongAnimal::operator=(const WrongAnimal &assign)
 {
-	(void) assign;
+	if (this != &assign) {
+        type = assign.type;
+    }
 	return *this;
 }
 

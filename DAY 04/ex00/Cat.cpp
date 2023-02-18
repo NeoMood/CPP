@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:09:55 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/07 16:47:47 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/16 21:14:28 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ Cat::~Cat()
 // Operators
 Cat & Cat::operator=(const Cat &assign)
 {
-	(void) assign;
+    if (this != &assign) {
+        type = assign.type;
+    }
 	return *this;
 }
 
