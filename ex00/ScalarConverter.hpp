@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:08:18 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/23 19:58:29 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/22 05:25:45 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include <string>
-# include <climits>
 
 class ScalarConverter
 {

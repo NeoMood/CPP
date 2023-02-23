@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:52:37 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/23 17:22:05 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/23 21:22:21 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ Base::~Base()
 
 Base * generate(void)
 {
-    // Base *A = new class A();
-    // Base *B = new class B();
-    // Base *C = new class C();
     srand(time(NULL));
     int choice = rand() % 3;
     
