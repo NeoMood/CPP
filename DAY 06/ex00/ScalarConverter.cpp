@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:08:15 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/23 17:57:39 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/23 18:16:03 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,33 +102,6 @@ bool isit_double(std::string str)
     return true;
 }
 
-void convert_char(std::string str)
-{
-    if(str.length() == 1 && isprint(str[0]))
-    {
-        std::cout << "- char: " << str[0] << std::endl;
-        // int i = static_cast<int>(str[0]);
-        // std::cout << "- int: " << i << std::endl;
-        // double d = static_cast<double>(str[0]);
-        // std::cout << "- double: " << d << std::endl;
-        // float f = static_cast<float>(str[0]);
-        // std::cout << "- float: " << f << std::endl;
-        int i = static_cast<int>(str[0]);
-        std::cout << "- int : " << i << std::endl;
-        if(static_cast<float>(str[0]) == i)
-            std::cout << "- float : " << str[0] << ".0" << "f" << std::endl;
-        else
-            std::cout << "- float : " << str[0] << "f" << std::endl;
-        double d = static_cast<double>(str[0]);
-        if(d == i)
-        std::cout << "- float : " << d << ".0" << std::endl;
-        else
-            std::cout << "- double : " << d << std::endl;
-    }
-    else
-        std::cout << "The argument you passed is not printable" << std::endl;
-}
-
 bool isit_int(std::string str)
 {
     int i = 0;
@@ -141,59 +114,98 @@ bool isit_int(std::string str)
     return(true);
 }
 
+void convert_char(std::string str)
+{
+    if(str.length() == 1 && isprint(str[0]))
+    {
+        std::cout << "- char: " << str[0] << std::endl;
+        int i = static_cast<int>(str[0]);
+        std::cout << "- int : " << i << std::endl;
+        
+        float f = static_cast<float>(str[0]);
+        if(f == i)
+            std::cout << "- float : " << i << ".0" << "f" << std::endl;
+        else
+            std::cout << "- float : " << f << "f" << std::endl;
+        
+        double d = static_cast<double>(str[0]);
+        if(d == i)
+            std::cout << "- double : " << d << ".0" << std::endl;
+        else
+            std::cout << "- double : " << d << std::endl;
+    }
+    else
+        std::cout << "The argument you passed is not printable" << std::endl;
+}
+
+
 void convert_int(std::string str)
 {
-    int num = atoi(str.c_str());
-    char c = static_cast<char>(num);
+    int i = atoi(str.c_str());
+    char c = static_cast<char>(i);
+    
     if(isprint(c))
         std::cout << "- char: " << c << std::endl;
     else
         std::cout << "- char: Non displayable" << std::endl;
-    std::cout << "- int: " << num << std::endl;
-    float f = static_cast<float>(num);
-    std::cout << "- float : " << f << "f" << std::endl;
-    double d = static_cast<double>(num);
-    std::cout << "- double: " << d << std::endl;
+    
+    std::cout << "- int: " << i << std::endl;
+    
+    float f = static_cast<float>(i);
+        if(f == i)
+            std::cout << "- float : " << i << ".0" << "f" << std::endl;
+        else
+            std::cout << "- float : " << f << "f" << std::endl;
+    
+    double d = static_cast<double>(i);
+    if(d == i)
+        std::cout << "- double : " << d << ".0" << std::endl;
+    else
+        std::cout << "- double : " << d << std::endl;
 }
 
 void convert_double(std::string str)
 {
-    int i;
-    float f;
-    double num;
-    num = std::stod(str);
-    char c = static_cast<char>(num);
+    double d = std::stod(str);
+    char c = static_cast<char>(d);
+    
     if(isprint(c))
         std::cout << "- char : " << c << std::endl;
     else
         std::cout << "- char : Non displayable" << std::endl;
-    i = static_cast<int>(num);
+    
+    int i = static_cast<int>(d);
     std::cout << "- int : " << i << std::endl;
-    f = static_cast<float>(num);
+    
+    float f = static_cast<float>(d);
     if(f == i)
         std::cout << "- float : " << f << ".0" << "f" << std::endl;
     else
         std::cout << "- float : " << f << "f" << std::endl;
-    if(num == i)
-        std::cout << "- double: " << num << ".0" << std::endl;
+    if(d == i)
+        std::cout << "- double: " << d << ".0" << std::endl;
     else
-        std::cout << "- double: " << num << std::endl;
+        std::cout << "- double: " << d << std::endl;
 }
 
 void convert_float(std::string str)
 {
     float f = std::stof(str);
     char c = static_cast<char>(f);
+    
     if(isprint(c))
         std::cout << "- char : " << c << std::endl;
     else
         std::cout << "- char : Non displayable" << std::endl;
+    
     int i = static_cast<int>(f);
     std::cout << "- int : " << i << std::endl;
+    
     if(static_cast<float>(f) == i)
         std::cout << "- float : " << f << ".0" << "f" << std::endl;
     else
         std::cout << "- float : " << f << "f" << std::endl;
+    
     double d = static_cast<double>(f);
     if(d == i)
        std::cout << "- float : " << d << ".0" << std::endl;
