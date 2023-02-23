@@ -140,18 +140,21 @@ void ScalarConverter::convert(std::string str)
         
     }
     if(is_int(str)){
-        // std::cout << "indide is_int" << std::endl;
+        std::cout << "indide is_int" << std::endl;
         int_convert(str);
     }
     else if(is_float(str)){
-        // std::cout << "indide is_f" << std::endl;
+        std::cout << "indide is_f" << std::endl;
         float_convert(str);
     }
     else if(is_double(str)){
-        // std::cout << "indide is_d" << std::endl;
+        std::cout << "indide is_d" << std::endl;
         double_convert(str);
         
     }
     else
+    {
+        std::cout << "indide is_c" << std::endl;
         is_char(str);
+    }
 }

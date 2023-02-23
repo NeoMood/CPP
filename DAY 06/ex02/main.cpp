@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 15:52:46 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/23 17:32:46 by sgmira           ###   ########.fr       */
+/*   Created: 2023/02/23 17:31:57 by sgmira            #+#    #+#             */
+/*   Updated: 2023/02/23 17:33:49 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-#define BASE_HPP
+#include "Base.hpp"
 
-#include <iostream>
-#include <string>
-
-
-class A;
-class B;
-class C;
-
-class Base
+int main()
 {
-    public:
-        virtual ~Base();
-};
-Base * generate(void);
-void identify(Base* p);
-void identify(Base& p);
+    Base *p;
 
+	p = generate();
 
-#endif
+	std::cout << "POINTER Check" << std::endl;
+	identify(p);
+
+	std::cout << "REFERENCE Check" << std::endl;
+	identify(*p);
+
+	delete p;
+	return 0;
+}

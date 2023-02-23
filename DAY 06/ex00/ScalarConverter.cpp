@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:08:15 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/22 06:29:30 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/23 17:57:39 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,18 +104,29 @@ bool isit_double(std::string str)
 
 void convert_char(std::string str)
 {
-    if(str.length() == 1 && isalpha(str[0]))
+    if(str.length() == 1 && isprint(str[0]))
     {
         std::cout << "- char: " << str[0] << std::endl;
+        // int i = static_cast<int>(str[0]);
+        // std::cout << "- int: " << i << std::endl;
+        // double d = static_cast<double>(str[0]);
+        // std::cout << "- double: " << d << std::endl;
+        // float f = static_cast<float>(str[0]);
+        // std::cout << "- float: " << f << std::endl;
         int i = static_cast<int>(str[0]);
-        std::cout << "- int: " << i << std::endl;
+        std::cout << "- int : " << i << std::endl;
+        if(static_cast<float>(str[0]) == i)
+            std::cout << "- float : " << str[0] << ".0" << "f" << std::endl;
+        else
+            std::cout << "- float : " << str[0] << "f" << std::endl;
         double d = static_cast<double>(str[0]);
-        std::cout << "- double: " << d << std::endl;
-        float f = static_cast<float>(str[0]);
-        std::cout << "- float: " << f << std::endl;
+        if(d == i)
+        std::cout << "- float : " << d << ".0" << std::endl;
+        else
+            std::cout << "- double : " << d << std::endl;
     }
     else
-        std::cout << "The argument you passed is not a character" << std::endl;
+        std::cout << "The argument you passed is not printable" << std::endl;
 }
 
 bool isit_int(std::string str)
@@ -201,14 +212,20 @@ void ScalarConverter::convert(std::string str)
         return ; 
     }
     if(isit_int(str)){
+        puts("int");
         convert_int(str);
     }
     else if(isit_float(str)){
+        puts("float");
         convert_float(str);
     }
     else if(isit_double(str)){
+        puts("double");
         convert_double(str);
     }
     else
+    {
+        puts("char");
         convert_char(str);
+    }
 }

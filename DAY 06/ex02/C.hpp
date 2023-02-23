@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 15:52:46 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/23 17:32:46 by sgmira           ###   ########.fr       */
+/*   Created: 2023/02/23 16:02:21 by sgmira            #+#    #+#             */
+/*   Updated: 2023/02/23 16:02:41 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-#define BASE_HPP
+#ifndef C_HPP
+#define C_HPP
 
 #include <iostream>
 #include <string>
+#include "Base.hpp"
 
-
-class A;
-class B;
-class C;
-
-class Base
+class C : public Base
 {
-    public:
-        virtual ~Base();
+    
 };
-Base * generate(void);
-void identify(Base* p);
-void identify(Base& p);
-
 
 #endif
