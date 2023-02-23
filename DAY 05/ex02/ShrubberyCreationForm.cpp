@@ -6,12 +6,10 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:45:45 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/15 18:31:05 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/21 21:01:10 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "Bureaucrat.hpp"
-// #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
 // Constructors
@@ -52,7 +50,7 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreation
 void    ShrubberyCreationForm::execute(Bureaucrat const &bur) const
 {
     std::ofstream outfile;
-    if(bur.getgrade() <= 145 && bur.getgrade() <= 137)
+    if(this->getis_signed() && bur.getgrade() <= 145 && bur.getgrade() <= 137)
     {
         outfile.open(this->target + "_shrubbery");
         outfile <<      "    oxoxoo    ooxoo"          << std::endl;

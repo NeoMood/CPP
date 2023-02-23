@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:30:30 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/15 18:30:25 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/20 17:51:27 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ class PresidentialPardonForm : public AForm
         PresidentialPardonForm(std::string Target);
         PresidentialPardonForm(const PresidentialPardonForm &copy);
 	    PresidentialPardonForm &operator=(const PresidentialPardonForm &assign);
-        // void    pardon(Bureaucrat &bur) const;
         void  execute(Bureaucrat const &bur) const;
         ~PresidentialPardonForm();
 };

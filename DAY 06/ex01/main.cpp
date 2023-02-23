@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main2.cpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 17:48:53 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/20 18:55:04 by sgmira           ###   ########.fr       */
+/*   Created: 2023/02/22 21:42:37 by sgmira            #+#    #+#             */
+/*   Updated: 2023/02/23 02:22:25 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "Serializer.hpp"
 
-int main(void)
-{
-    try
-    {
-        Form f("Form 1", 20, 10);
-        Bureaucrat b("Bob", 11);
+int main() {
+    Data* data = new Data;
+    data->x = 202;
+    data->y = 13.2;
 
-        std::cout << b << std::endl;
-        std::cout << f << std::endl;
+    uintptr_t serialized = Serializer::serialize(data);
 
-        b.signForm(f);
-        std::cout << b << std::endl;
-        std::cout << f << std::endl;
-    }
-    catch (std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+    std::cout << "Serialized value: " << serialized << std::endl;
 
+    Data* deserialized = Serializer::deserialize(serialized);
+
+    std::cout << "Deserialized values: " << deserialized->x << ", " << deserialized->y << std::endl;
+
+    delete data;
     return 0;
 }

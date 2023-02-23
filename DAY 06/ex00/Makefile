@@ -5,24 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/17 17:43:25 by sgmira            #+#    #+#              #
-#    Updated: 2023/02/20 19:01:55 by sgmira           ###   ########.fr        #
+#    Created: 2023/02/22 05:12:58 by sgmira            #+#    #+#              #
+#    Updated: 2023/02/22 05:13:40 by sgmira           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bureaucrat
+
+NAME = ScalarConverter
 
 CC = c++
 CC_FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
-INL = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+INL = ScalarConverter.hpp 
 
 SRCS = main.cpp \
-	   Bureaucrat.cpp \
-	   AForm.cpp \
-	   ShrubberyCreationForm.cpp \
-	   RobotomyRequestForm.cpp \
-	   PresidentialPardonForm.cpp \
+	   ScalarConverter.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 

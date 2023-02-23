@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:30:23 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/15 18:35:18 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:06:03 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPar
 
 void    PresidentialPardonForm::execute(Bureaucrat const &bur) const
 {
-    if(bur.getgrade() <= 25 && bur.getgrade() <= 5)
+    if(this->getis_signed() && (bur.getgrade() <= 25 && bur.getgrade() <= 5))
     {
         std::cout << this->target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
     }

@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 22:40:08 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/15 19:00:59 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/21 20:59:44 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ const std::string AForm::getname()
 	return(this->name);
 }
 
-bool AForm::getis_signed()
+bool AForm::getis_signed() const
 {
 	return(this->is_signed);
 }
@@ -78,7 +78,10 @@ AForm::~AForm()
 // Operators
 AForm & AForm::operator=(const AForm &assign)
 {
-	(void) assign;
+	if(this != &assign)
+    {
+        this->is_signed = assign.is_signed;
+    }
 	return *this;
 }
 

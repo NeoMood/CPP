@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 22:40:08 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/08 19:10:02 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/20 23:42:27 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,6 @@ unsigned int Form::getgrade_execute()
 	return(this->grade_execute);
 }
 
-// void Form::beSigned(unsigned int grade)
-// {
-// 	// if(grade <= 5)
-// 	// {
-// 	// 	this->is_signed = true;
-// 	// }
-// 	// else if(grade > 150)
-//     //     throw Form::GradeTooLowException();
-// }
-
 void Form::beSigned(Bureaucrat &bureaucrat)
 {
     if (bureaucrat.getgrade() <= this->getgrade_sign())
@@ -90,7 +80,10 @@ Form::~Form()
 // Operators
 Form & Form::operator=(const Form &assign)
 {
-	(void) assign;
+	if(this != &assign)
+    {
+        this->is_signed = assign.is_signed;
+    }
 	return *this;
 }
 
