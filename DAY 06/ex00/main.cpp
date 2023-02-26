@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 05:14:00 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/22 05:22:57 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/26 20:14:31 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,5 @@ int main(int ac, char **av)
     }
     str = av[1];
     ScalarConverter::convert(str);
-    // if(is_int(str))
-    //     convert_int(str);
-    // else if(is_float(str))
-    //     convert_float(str);
-    // else if(is_double(str))
-    //     convert_double(str);
-    // else if(str.length() == 1)
-    //     convert_char(str);
-    // else
-    //     its_pseudo(str);
     return 0;
 }

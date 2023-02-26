@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:08:15 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/23 20:43:48 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/26 23:52:33 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,38 +18,11 @@ ScalarConverter::ScalarConverter()
 	std::cout << "\e[0;33mDefault Constructor called of ScalarConverter\e[0m" << std::endl;
 }
 
-// ScalarConverter::ScalarConverter(const ScalarConverter &copy)
-// {
-// 	(void) copy;
-// 	std::cout << "\e[0;33mCopy Constructor called of ScalarConverter\e[0m" << std::endl;
-// }
-
-
 // Destructor
 ScalarConverter::~ScalarConverter()
 {
 	std::cout << "\e[0;31mDestructor called of ScalarConverter\e[0m" << std::endl;
 }
-
-
-// // Operators
-// ScalarConverter & ScalarConverter::operator=(const ScalarConverter &assign)
-// {
-// 	(void) assign;
-// 	return *this;
-// }
-
-// bool isit_int(std::string str)
-// {
-//     int j = 0;
-//     while(str[j])
-//     {
-//         if(!isdigit(str[j]) && str[j] != '-' && str[j] != '+')
-//             return(false);
-//         j++;
-//     }
-//     return(true);
-// }
 
 bool isit_float(std::string str)
 {
@@ -61,7 +34,7 @@ bool isit_float(std::string str)
 		if(!isdigit(str[i]) && str[i] != '-' && str[i] != '+')
 			break;
 	}
-    if (str[i] == '.')
+    if (str[i] == '.' && i > 0 && isdigit(str[i - 1]) && isdigit(str[i + 1]))
     {
         while(str[++i])
         {
@@ -76,8 +49,6 @@ bool isit_float(std::string str)
             }
         }
     }
-    else if(str[i] == 'f')
-        return true;
     return false;
 }
 
@@ -89,7 +60,7 @@ bool isit_double(std::string str)
         if(!isdigit(str[i]) && str[i] != '+' && str[i] != '-')
             break;
     }
-    if (str[i] == '.')
+    if (str[i] == '.' && i > 0 && isdigit(str[i - 1]) && isdigit(str[i + 1]))
     {
         while(str[++i])
         {
@@ -105,12 +76,18 @@ bool isit_double(std::string str)
 bool isit_int(std::string str)
 {
     int i = 0;
+    
+    if(str[i] == '-' || str[i] == '+')
+        i++;
+
+    // puts("igiougujgjg");
     while(str[i])
     {
-        if(!isdigit(str[i]) && str[i] != '+' && str[i] != '-')
-            return(false);
+        if(!isdigit(str[i]))
+            return false;
         i++;
     }
+
     long long num = stoll(str);
 
     if (num < INT_MIN || num > INT_MAX)
@@ -239,7 +216,7 @@ void ScalarConverter::convert(std::string str)
         std::cout << "- double: " << str.erase(str.size() - 1) << std::endl;
         return ;       
     }
-    if(isit_int(str)){
+    if (isit_int(str)){
         std::cout << "initial type: int" << std::endl;
         convert_int(str);
     }
@@ -251,7 +228,7 @@ void ScalarConverter::convert(std::string str)
         std::cout << "initial type: double" << std::endl;
         convert_double(str);
     }
-    else
+    else if (str.length() == 1)
     {
         std::cout << "initial type: char" << std::endl;
         convert_char(str);
