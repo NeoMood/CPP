@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 21:37:58 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/22 01:03:52 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/20 18:16:30 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,11 @@ AForm*    Intern::makeForm(std::string name, std::string target)
             break ;
     switch(i)
     {
-        case (0,1, 3):
+        case 0:
+            return (this->*(Intern[i]))(target);
+        case 1:
+            return (this->*(Intern[i]))(target);
+        case 2:
             return (this->*(Intern[i]))(target);
         default :
             std::cout << "Sorry, the form that you requested doesn't exist." << std::endl;

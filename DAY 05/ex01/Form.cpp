@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 22:40:08 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/20 23:42:27 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:15:20 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ const std::string Form::getname()
 	return(this->name);
 }
 
-bool Form::getis_signed()
+bool Form::getis_signed() const
 {
 	return(this->is_signed);
 }

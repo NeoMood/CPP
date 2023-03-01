@@ -6,13 +6,11 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 23:45:03 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/15 19:01:07 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:16:42 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-// #include "AForm.hpp"
-// #include "ShrubberyCreationForm.hpp"
 
 // Constructors
 Bureaucrat::Bureaucrat()

@@ -5,21 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/22 05:12:58 by sgmira            #+#    #+#              #
-#    Updated: 2023/02/22 05:13:40 by sgmira           ###   ########.fr        #
+#    Created: 2023/03/01 02:03:19 by sgmira            #+#    #+#              #
+#    Updated: 2023/03/01 02:03:41 by sgmira           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-NAME = ScalarConverter
+NAME = Iter
 
 CC = c++
 CC_FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
-INL = ScalarConverter.hpp 
+INL = Array.hpp 
 
 SRCS = main.cpp \
-	   ScalarConverter.cpp \
+		Array.cpp  \
 
 OBJS = $(SRCS:.cpp=.o)
 

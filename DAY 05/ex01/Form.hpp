@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 23:02:14 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/08 18:42:38 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:14:54 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Form
 		Form(const Form &copy);
 		Form(std::string const &name, int grade_to_sign, int grade_to_execute);
 		const std::string getname();
-		bool getis_signed();
+		bool getis_signed() const;
 		unsigned int getgrade_sign();
 		unsigned int getgrade_execute();
 		void beSigned(Bureaucrat &bureaucrat);

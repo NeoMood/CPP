@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:52:37 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/23 21:22:21 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/27 20:34:28 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 // Destructor
 Base::~Base()
 {
-    std::cout << "\e[0;31mDestructor called of Base\e[0m" << std::endl;
+    // std::cout << "\e[0;31mDestructor called of Base\e[0m" << std::endl;
 }
 
 Base * generate(void)

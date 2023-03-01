@@ -5,31 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 05:14:00 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/22 05:22:57 by sgmira           ###   ########.fr       */
+/*   Created: 2023/02/27 21:39:23 by sgmira            #+#    #+#             */
+/*   Updated: 2023/02/27 22:32:30 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Iter.hpp"
 
-int main(int ac, char **av)
-{
-    std::string str;
-    if(ac != 2){
-        std::cout << "ERROR: INVALID ARGS" << std::endl;
-        return 0;
-    }
-    str = av[1];
-    ScalarConverter::convert(str);
-    // if(is_int(str))
-    //     convert_int(str);
-    // else if(is_float(str))
-    //     convert_float(str);
-    // else if(is_double(str))
-    //     convert_double(str);
-    // else if(str.length() == 1)
-    //     convert_char(str);
-    // else
-    //     its_pseudo(str);
+void printendl(int x) {
+    std::cout << x << std::endl;
+}
+
+void printendl_2(std::string s) {
+    std::cout << "~" << s << std::endl;
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    iter(arr, 5, printendl);
+
+    std::string arr_2[] = {"This", "Is", "a", "Test", "for", "My Iter Template"};
+    iter(arr_2, 6, printendl_2);
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 21:42:37 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/23 02:22:25 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/27 19:49:52 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main() {
     Data* data = new Data;
-    data->x = 202;
+    data->x = 20;
     data->y = 13.2;
 
     uintptr_t serialized = Serializer::serialize(data);

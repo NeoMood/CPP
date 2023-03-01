@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:08:15 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/26 23:52:33 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/27 23:42:20 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,17 @@ ScalarConverter::~ScalarConverter()
 
 bool isit_float(std::string str)
 {
-    int i;
+    int i = 0;
+    
+    if(str[i] == '-' || str[i] == '+')
+        i++;
 
-    i = -1;
-	while(str[++i])
-	{
-		if(!isdigit(str[i]) && str[i] != '-' && str[i] != '+')
-			break;
-	}
+    if(!str[i])
+        return(false);
+    while(str[i] && isdigit(str[i]))
+        i++;
+    if(!str[i])
+        return(false);
     if (str[i] == '.' && i > 0 && isdigit(str[i - 1]) && isdigit(str[i + 1]))
     {
         while(str[++i])
@@ -54,12 +57,17 @@ bool isit_float(std::string str)
 
 bool isit_double(std::string str)
 {
-    int i = -1;
-    while(str[++i])
-    {
-        if(!isdigit(str[i]) && str[i] != '+' && str[i] != '-')
-            break;
-    }
+    int i = 0;
+    
+    if(str[i] == '-' || str[i] == '+')
+        i++;
+
+    if(!str[i])
+        return(false);
+    while(str[i] && isdigit(str[i]))
+        i++;
+    if(!str[i])
+        return(false);
     if (str[i] == '.' && i > 0 && isdigit(str[i - 1]) && isdigit(str[i + 1]))
     {
         while(str[++i])
@@ -80,7 +88,8 @@ bool isit_int(std::string str)
     if(str[i] == '-' || str[i] == '+')
         i++;
 
-    // puts("igiougujgjg");
+    if(!str[i])
+        return(false);
     while(str[i])
     {
         if(!isdigit(str[i]))
@@ -233,4 +242,6 @@ void ScalarConverter::convert(std::string str)
         std::cout << "initial type: char" << std::endl;
         convert_char(str);
     }
+    else
+        std::cout << "ERROR: UNKNOWN TYPE" << std::endl;
 }

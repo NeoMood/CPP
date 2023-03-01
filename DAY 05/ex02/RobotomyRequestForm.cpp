@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:35:10 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/21 21:01:00 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:17:32 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm &
 
 void    RobotomyRequestForm::execute(Bureaucrat const &bur) const
 {
-    if(this->getis_signed() && bur.getgrade() <= 72 && bur.getgrade() <= 45)
+    if(this->getis_signed() && (bur.getgrade() <= 72 && bur.getgrade() <= 45))
     {
         std::cout << "Vrrrrrr... Vrrrrrr... Vrrrrrr..." << std::endl;
         srand(time(NULL));
