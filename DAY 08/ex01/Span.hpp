@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MyTemplates.hpp                                    :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 20:55:23 by sgmira            #+#    #+#             */
-/*   Updated: 2023/03/03 20:27:12 by sgmira           ###   ########.fr       */
+/*   Created: 2023/03/01 23:41:08 by sgmira            #+#    #+#             */
+/*   Updated: 2023/03/05 20:06:59 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MYTEMPLATES_HPP
-#define MYTEMPLATES_HPP
+#ifndef SPAN_HPP
+#define SPAN_HPP
 
 # include <iostream>
 # include <string>
+# include <vector>
+# include <algorithm>
 
-template<typename T>
-void swap(T& a, T& b) {
-    T temp = a;
-    a = b;
-    b = temp;
-}
+class Span {
+    public:
+        Span();
+        Span(unsigned int N);
+        Span(const Span &copy);
+        Span &operator=(Span const &assign);
+        void addNumber(int num);
+        int shortestSpan();
+        int longestSpan();
+        Span fill_span(unsigned int span_size);
+    private:
+        unsigned int arr_size;
+        std::vector<int> arr;
+};
 
-template<typename T>
-T min(T a, T b) {
-    return (a <= b) ? a : b;
-}
-
-template<typename T>
-T max(T a, T b) {
-    return (a >= b) ? a : b;
-}
 
 
 #endif

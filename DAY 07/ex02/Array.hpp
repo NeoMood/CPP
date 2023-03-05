@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 20:30:32 by sgmira            #+#    #+#             */
-/*   Updated: 2023/03/01 02:52:33 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/03/03 20:07:09 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,119 +31,55 @@ class Array {
         unsigned int array_len;    
 };
 
+template <typename T>
+Array<T>::Array() : array(nullptr), array_len(0) {}
 
-// #ifndef ARRAY_HPP
-// #define ARRAY_HPP
+template <typename T>
+Array<T>::Array(unsigned int n) : array(new T[n]), array_len(n) 
+{
+    for (unsigned int i = 0; i < n; i++) {
+        array[i] = T();
+    }
+}
 
-// #include <iostream>
-// #include <string>
+template <typename T>
+Array<T>::Array(const Array& copy) : array(new T[copy.array_len]), array_len(copy.array_len) 
+{
+    for (unsigned int i = 0; i < array_len; i++) {
+        array[i] = copy.array[i];
+    }
+}
 
-// template <typename T>
-// class Array
-// {
-//     private:
-//         T *arr;
-//         unsigned int length;
-//     public:
-//     Array() : arr(0), length(0)
-//     {}
-//     Array(unsigned int n)
-//     {
-//         this->length = n;
-//         this->arr = new T[n];
-//     };
-//     Array(const Array &other)
-//     {
-//         *this = other;
-//     };
-//     Array &operator=(Array const &other)
-//     {
-// 	    if (this != &other)
-// 	    {
-// 	    	this->length = other.length;
-// 	    	this->arr = new T[other.length];
-// 	    	for (unsigned int i = 0; i < length; i++)
-// 	    		this->arr[i] = other.arr[i];
-// 	    }
-// 	    return (*this);
-// 	};
-//     T  &operator[](unsigned int ind)
-//     {
-//         if(ind >= this->length)
-//             throw std::out_of_range ("index is out of bounds");
-//         else
-//             return this->arr[ind];
-//     }
-//     unsigned int size() const
-//     {
-//         return this->length;
-//     }
-//     ~Array()
-//     {
-//         delete [] arr;
-//     }
-// };
+template <typename T>
+Array<T>& Array<T>::operator=(const Array& assign) {
+    if (this != &assign) {
+        T* newData = new T[assign.array_len];
+        for (unsigned int i = 0; i < assign.array_len; i++) {
+            newData[i] = assign.array[i];
+        }
+        delete[] array;
+        array = newData;
+        array_len = assign.array_len;
+    }
+    return *this;
+}
 
-// #endif
+template <typename T>
+Array<T>::~Array() {
+    delete[] array;
+}
 
-// #include <stdexcept>
+template <typename T>
+T& Array<T>::operator[](unsigned int index) {
+    if (index >= this->array_len) {
+        throw std::out_of_range("Array index out of range");
+    }
+    return array[index];
+}
 
-// template <typename T>
-// class Array {
-// public:
-//     // Default constructor
-//     Array() : m_data(nullptr), m_size(0) {}
-    
-//     // Constructor with size parameter
-//     Array(unsigned int size) : m_data(new T[size]), m_size(size) {
-//         for (unsigned int i = 0; i < size; i++) {
-//             m_data[i] = T(); // default initialize elements
-//         }
-//     }
-    
-//     // Copy constructor
-//     Array(const Array& other) : m_data(new T[other.m_size]), m_size(other.m_size) {
-//         for (unsigned int i = 0; i < m_size; i++) {
-//             m_data[i] = other.m_data[i];
-//         }
-//     }
-    
-//     // Assignment operator
-//     Array& operator=(const Array& other) {
-//         if (this != &other) {
-//             T* newData = new T[other.m_size];
-//             for (unsigned int i = 0; i < other.m_size; i++) {
-//                 newData[i] = other.m_data[i];
-//             }
-//             delete[] m_data;
-//             m_data = newData;
-//             m_size = other.m_size;
-//         }
-//         return *this;
-//     }
-    
-//     // Destructor
-//     ~Array() {
-//         delete[] m_data;
-//     }
-    
-//     // Subscript operator
-//     T& operator[](unsigned int index) {
-//         if (index >= m_size) {
-//             throw std::out_of_range("Array index out of range");
-//         }
-//         return m_data[index];
-//     }
-    
-//     // Size function
-//     unsigned int size() const {
-//         return m_size;
-//     }
-    
-// private:
-//     T* m_data;
-//     unsigned int m_size;
-// };
+template <typename T>
+unsigned int Array<T>::size() const {
+    return this->array_len;
+}
 
-
-// #endif
+#endif

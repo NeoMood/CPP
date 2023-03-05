@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/01 02:03:19 by sgmira            #+#    #+#              #
-#    Updated: 2023/03/01 20:12:33 by sgmira           ###   ########.fr        #
+#    Created: 2023/03/01 22:17:44 by sgmira            #+#    #+#              #
+#    Updated: 2023/03/02 02:14:53 by sgmira           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Iter
+NAME = EZfind
 
 CC = c++
 CC_FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
-INL = Array.hpp 
+INL = easyfind.hpp 
 
 SRCS = main.cpp \
 

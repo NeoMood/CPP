@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MyTemplates.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 20:55:23 by sgmira            #+#    #+#             */
-/*   Updated: 2023/03/03 20:27:12 by sgmira           ###   ########.fr       */
+/*   Created: 2023/03/01 22:09:53 by sgmira            #+#    #+#             */
+/*   Updated: 2023/03/05 19:22:26 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MYTEMPLATES_HPP
-#define MYTEMPLATES_HPP
+#include "easyfind.hpp"
 
-# include <iostream>
-# include <string>
-
-template<typename T>
-void swap(T& a, T& b) {
-    T temp = a;
-    a = b;
-    b = temp;
+int main() {
+    std::vector<int> myVect;
+    myVect.push_back(1337);
+    myVect.push_back(42);
+    myVect.push_back(21);
+    myVect.push_back(7331);
+    
+    ::easyfind(myVect, 21);
+    ::easyfind(myVect, 10);
+    return 0;
 }
-
-template<typename T>
-T min(T a, T b) {
-    return (a <= b) ? a : b;
-}
-
-template<typename T>
-T max(T a, T b) {
-    return (a >= b) ? a : b;
-}
-
-
-#endif

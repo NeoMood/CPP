@@ -5,19 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/01 02:03:19 by sgmira            #+#    #+#              #
-#    Updated: 2023/03/01 20:12:33 by sgmira           ###   ########.fr        #
+#    Created: 2023/03/02 02:14:19 by sgmira            #+#    #+#              #
+#    Updated: 2023/03/05 20:07:33 by sgmira           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Iter
+NAME = Span
 
 CC = c++
 CC_FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
-INL = Array.hpp 
+INL = Span.hpp 
 
 SRCS = main.cpp \
+	Span.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
