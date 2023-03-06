@@ -39,7 +39,6 @@ Span &Span::operator=(Span const &assign)
 void Span::addNumber(int num) {
     if (arr.size() >= arr_size) {
         throw std::exception();
-        // std::cerr << "Error: array is full" << std::endl;
         return;
     }
     arr.push_back(num);
@@ -64,17 +63,13 @@ int Span::longestSpan() {
     if (arr.size() < 2) {
         throw std::exception();
     }
-    std::sort(arr.begin(), arr.end());
-    return arr.back() - arr.front();
+    return std::max(arr.begin(), arr.end()) - std::min(arr.begin(), arr.end());
 }
 
-Span Span::fill_span(unsigned int span_size)
+void Span::fill_span(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-    Span sp = Span(span_size);
-    srand(time(NULL));
-    for (int i = 0; i < 10000; i++) {
-        int num = rand() % 1000;
-        sp.addNumber(num);
-    }
-    return sp;
+    arr.clear();
+    if(std::distance(begin, end) > arr_size)
+        throw std::length_error("Error: Span is full\n");
+    std::copy(begin, end, std::back_inserter(arr));
 }

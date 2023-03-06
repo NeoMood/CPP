@@ -17,17 +17,18 @@
 # include <string>
 # include <algorithm>
 # include <vector>
+# include <iterator>
+# include <list>
 
 template <typename T>
 void easyfind(T a, int i)
 {
-    std::vector<int>::iterator it = std::find(a.begin(), a.end(), i);
+    typename T::iterator it = std::find(a.begin(), a.end(), i);
 
-    if (it != a.end())
+    if (std::find(a.begin(), a.end(), i) != a.end())
         std::cout << "the first occurrence of " << i << " is found at index " << std::distance(a.begin(), it) << std::endl;
     else
         std::cout << "the first occurrence of " << i << " is not found" << std::endl;
 }
-
 
 #endif

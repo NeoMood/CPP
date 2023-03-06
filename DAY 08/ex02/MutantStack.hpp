@@ -26,8 +26,16 @@ template<typename T>
 class MutantStack : public std::stack<T>
 {
     public:
-        // MutantStack();
-        // ~MutantStack();
+        MutantStack(){};
+        MutantStack(const MutantStack& copy){ *this = copy; };
+        MutantStack& operator=(const MutantStack& assign)
+        {
+            if (this != &assign) {
+                MutantStack<T>::stack::operator=(assign);
+            }
+                return *this;
+        };
+        ~MutantStack(){};
         typedef typename std::stack<T>::container_type::iterator iterator;
         typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
         typedef typename std::stack<T>::container_type::const_iterator const_iterator;
@@ -41,14 +49,5 @@ class MutantStack : public std::stack<T>
         const_reverse_iterator crbegin() { return this->c.crbegin(); }
         const_reverse_iterator crend() { return this->c.crend(); }
 };
-
-// MutantStack::MutantStack()
-// {
-// }
-
-// MutantStack::~MutantStack()
-// {
-// }
-
 
 #endif

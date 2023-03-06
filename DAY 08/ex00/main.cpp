@@ -18,8 +18,7 @@ int main() {
     myVect.push_back(42);
     myVect.push_back(21);
     myVect.push_back(7331);
-    
-    ::easyfind(myVect, 21);
+    ::easyfind(myVect, 42);
     ::easyfind(myVect, 10);
     return 0;
 }

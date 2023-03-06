@@ -27,7 +27,7 @@ class Span {
         void addNumber(int num);
         int shortestSpan();
         int longestSpan();
-        Span fill_span(unsigned int span_size);
+        void fill_span(std::vector<int>::iterator begin, std::vector<int>::iterator end);
     private:
         unsigned int arr_size;
         std::vector<int> arr;

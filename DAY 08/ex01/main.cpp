@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 02:13:37 by sgmira            #+#    #+#             */
-/*   Updated: 2023/03/03 03:15:51 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/03/05 20:38:56 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,28 @@
 
 int main()
 {
-    // Span sp = Span(10000);
+    Span sp(10);
+    
     try{
-        Span sp;
-
-        sp.fill_span(10000);
+        std::vector<int> vector;
+        srand(time(NULL));
+        for (int i = 0; i < 10; i++)
+            vector.push_back(rand() % 10000);
+        sp.fill_span(vector.begin(), vector.end());
         // sp.addNumber(6);
         // sp.addNumber(3);
         // sp.addNumber(17);
         // sp.addNumber(9);
         // sp.addNumber(11);
-        
-        // srand(time(NULL));
-        // for (int i = 0; i < 10000; i++) {
-        //     int num = rand() % 1000;
-        //     sp.addNumber(num);
-        // }
     }
     catch(std::exception &e){
-        std::cerr << "Error: array is full" << std::endl;
+        std::cerr << "Error: Span is full" << std::endl;
     }
     try{
-        std::cout << "The shortest span is " << sp.shortestSpan() << std::endl;
-        std::cout << "The longest span is " << sp.longestSpan() << std::endl;
+        int shortest = sp.shortestSpan();
+        int longest = sp.longestSpan();
+        std::cout << "The shortest span is " << shortest << std::endl;
+        std::cout << "The longest span is " << longest << std::endl;
     }
     catch(std::exception &e){
         std::cerr << "Error: array have less than 2 elements" << std::endl;

@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Span
+NAME = MySpan
 
 CC = c++
 CC_FLAGS = -Wall -Wextra -Werror -std=c++98
@@ -18,7 +18,7 @@ RM = rm -f
 INL = Span.hpp 
 
 SRCS = main.cpp \
-	Span.cpp \
+		Span.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
