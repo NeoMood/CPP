@@ -25,7 +25,7 @@ void easyfind(T a, int i)
 {
     typename T::iterator it = std::find(a.begin(), a.end(), i);
 
-    if (std::find(a.begin(), a.end(), i) != a.end())
+    if (it != a.end())
         std::cout << "the first occurrence of " << i << " is found at index " << std::distance(a.begin(), it) << std::endl;
     else
         std::cout << "the first occurrence of " << i << " is not found" << std::endl;

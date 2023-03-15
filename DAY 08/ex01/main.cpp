@@ -14,19 +14,19 @@
 
 int main()
 {
-    Span sp(10);
+    Span sp(100);
     
     try{
-        std::vector<int> vector;
-        srand(time(NULL));
-        for (int i = 0; i < 10; i++)
-            vector.push_back(rand() % 10000);
-        sp.fill_span(vector.begin(), vector.end());
-        // sp.addNumber(6);
-        // sp.addNumber(3);
-        // sp.addNumber(17);
-        // sp.addNumber(9);
-        // sp.addNumber(11);
+        // std::vector<int> vector;
+        // srand(time(NULL));
+        // for (int i = 0; i < 100; i++)
+        //     vector.push_back(rand() % 10000);
+        // sp.fill_span(vector.begin(), vector.end());
+        sp.addNumber(6);
+        sp.addNumber(3);
+        sp.addNumber(17);
+        sp.addNumber(9);
+        sp.addNumber(11);
     }
     catch(std::exception &e){
         std::cerr << "Error: Span is full" << std::endl;

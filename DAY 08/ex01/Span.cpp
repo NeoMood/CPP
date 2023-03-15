@@ -42,7 +42,7 @@ void Span::addNumber(int num) {
         return;
     }
     arr.push_back(num);
-    std::cout << "number " << num << " has been added to the array succefully" << std::endl;
+    std::cout << "number " << num << " has been added to the span succefully" << std::endl;
 }
 
 int Span::shortestSpan() {
@@ -63,7 +63,7 @@ int Span::longestSpan() {
     if (arr.size() < 2) {
         throw std::exception();
     }
-    return std::max(arr.begin(), arr.end()) - std::min(arr.begin(), arr.end());
+    return *std::max_element(arr.begin(), arr.end()) - *std::min_element(arr.begin(), arr.end());
 }
 
 void Span::fill_span(std::vector<int>::iterator begin, std::vector<int>::iterator end)
@@ -73,3 +73,5 @@ void Span::fill_span(std::vector<int>::iterator begin, std::vector<int>::iterato
         throw std::length_error("Error: Span is full\n");
     std::copy(begin, end, std::back_inserter(arr));
 }
+
+Span::~Span(){};

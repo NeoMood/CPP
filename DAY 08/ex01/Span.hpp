@@ -23,6 +23,7 @@ class Span {
         Span();
         Span(unsigned int N);
         Span(const Span &copy);
+        ~Span();
         Span &operator=(Span const &assign);
         void addNumber(int num);
         int shortestSpan();
