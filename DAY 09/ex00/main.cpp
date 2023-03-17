@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:35:06 by sgmira            #+#    #+#             */
-/*   Updated: 2023/03/16 00:04:11 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/03/17 16:21:40 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,20 @@ int main(int ac, char **av)
     size_t delimiter_pos;
     if(ac != 2)
     {
-        std::cerr << "ERROR: Number of arguments is not valid!" << std::endl;
+        std::cerr << "\033[31mError: Number of arguments is not valid!\033[0m" << std::endl;
         return 1;
     }
     
     std::ifstream database("data.csv");
     if (!database.is_open())
     { 
-        std::cerr << "ERROR: Failed to open database file" << std::endl;
+        std::cerr << "\033[31mError: Failed to open database file\033[0m" << std::endl;
         return 1;
     }
     
     std::map<std::string, std::string> datamap;
     std::string line;
+    std::map<std::string, std::string>::const_iterator it;
     while (std::getline(database, line)) 
     {
         delimiter_pos = line.find(",");
@@ -42,7 +43,7 @@ int main(int ac, char **av)
     std::ifstream userdata(av[1]);
     if (!userdata.is_open())
     { 
-        std::cerr << "ERROR: Failed to open userdata file" << std::endl;
+        std::cerr << "\033[31mError: Failed to open userdata file\033[0m" << std::endl;
         return 1;
     }
 
@@ -60,6 +61,16 @@ int main(int ac, char **av)
         {
             continue;
         }
+        if(atof(value.c_str()) < 0)
+        {
+            std::cerr << "\033[31mError: not a positive number\033[0m" << std::endl;
+            continue;
+        }
+        if(atof(value.c_str()) > 1000)
+        {
+            std::cerr << "\033[31mError: Value is too large\033[0m" << std::endl;
+            continue;
+        }
         delimiter_pos = key.find("-");
         std::string year = key.substr(0, delimiter_pos);
         std::string rest = key.substr(delimiter_pos+1);
@@ -71,37 +82,19 @@ int main(int ac, char **av)
 
         if(std::stoi(year) < 1 || std::stoi(month) > 12 || std::stoi(month) < 1 || std::stoi(day) > 31 || std::stoi(day) < 0 || (std::stoi(month) == 2 && (std::stoi(day) > 29 || std::stoi(day) < 1)))
         {
-            std::cerr << "ERROR: date is not valid" << std::endl;
-            return 1;
+            std::cerr << "\033[31mError: Bad input" << " => " << key << "\033[0m" << std::endl;
+            continue;
         }
-        if(std::stoi(value) < 0 || std::stoi(value) > 1000)
+        float btcvalue;
+        if(datamap[key.substr(0, key.length() - 1)].empty())
         {
-            std::cerr << "ERROR: value is not valid" << std::endl;
-            return 1;
+            it = datamap.upper_bound(key.substr(0, key.length() - 1));
+            if(it != datamap.begin())
+                it--;
+            btcvalue = atof(datamap.upper_bound(key.substr(0, key.length() - 1))->second.c_str());
         }
-        std::cout << year << " | " << month << " | " << day << " : " << value << std::endl;
+        else
+            btcvalue =  atof(datamap[key.substr(0, key.length() - 1)].c_str());
+        std::cout << year << "-" << month << "-" << day << "=>" << value << " = " << atof(value.c_str()) * btcvalue << std::endl;
     }
-    // std::map<std::string, std::string> datamap2;
-    // std::string line2;
-    // while (std::getline(userdata, line2))
-    // {
-    //     if (line2.find("|") == std::string::npos)
-    //     {
-    //         std::string key = line2.substr(0, delimiter_pos);
-    //         datamap2[key] = "";
-    //     }
-    //     else
-    //     {
-    //         delimiter_pos = line2.find("|");
-    //         std::string key = line2.substr(0, delimiter_pos);
-    //         std::string value = line2.substr(delimiter_pos+1);
-    //         datamap2[key] = value;
-    //     }
-    // }
-    
-    // std::map<std::string, std::string>::const_iterator it;
-    // for (it = datamap2.begin(); it != datamap2.end(); ++it) {
-    //     std::cout << it->first << "=>" << it->second << std::endl;
-    // }
-    
 }
