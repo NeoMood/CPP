@@ -6,13 +6,13 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:35:06 by sgmira            #+#    #+#             */
-/*   Updated: 2023/03/17 16:21:40 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/03/18 22:42:34 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-
-
+#include <iostream>
+#include <fstream>
 int main(int ac, char **av)
 {
     size_t delimiter_pos;
@@ -31,15 +31,16 @@ int main(int ac, char **av)
     
     std::map<std::string, std::string> datamap;
     std::string line;
-    std::map<std::string, std::string>::const_iterator it;
+    std::map<std::string, std::string>::iterator it;
     while (std::getline(database, line)) 
     {
         delimiter_pos = line.find(",");
         std::string key = line.substr(0, delimiter_pos);
         std::string value = line.substr(delimiter_pos+1);
+        // std::cout <<key << " - "<< value<< std::endl;
         datamap[key] = value;
     }
-    
+    database.close();
     std::ifstream userdata(av[1]);
     if (!userdata.is_open())
     { 
@@ -50,6 +51,7 @@ int main(int ac, char **av)
     std::string line2;
     while(std::getline(userdata, line2))
     {
+
         delimiter_pos = line2.find("|");
         std::string key = line2.substr(0, delimiter_pos);
         std::string value;
@@ -86,15 +88,28 @@ int main(int ac, char **av)
             continue;
         }
         float btcvalue;
-        if(datamap[key.substr(0, key.length() - 1)].empty())
+        std::string key_date = key.substr(0, key.length() - 1);
+        if(datamap.find(key_date) == datamap.end())
         {
-            it = datamap.upper_bound(key.substr(0, key.length() - 1));
+            // std::ofstream outputFile("output.txt");
+            // std::map<std::string, std::string>::iterator a;
+            // for (a = datamap.begin(); a != datamap.end(); a++) {
+            //     outputFile <<"'" <<a->first << "'," << a->second << std::endl;
+            // }
+            // break;
+            it = datamap.upper_bound(key_date);
             if(it != datamap.begin())
                 it--;
-            btcvalue = atof(datamap.upper_bound(key.substr(0, key.length() - 1))->second.c_str());
+            // if(it->first != key_date)
+            // {
+            //     puts("-=-=-=-=-=-=-=-=-=-=-=-=-");
+            //     it--;
+            //     std::cout << it->first << std::endl;
+            // }
+            btcvalue = atof(it->second.c_str());
         }
         else
-            btcvalue =  atof(datamap[key.substr(0, key.length() - 1)].c_str());
+            btcvalue =  atof(datamap[key_date].c_str());
         std::cout << year << "-" << month << "-" << day << "=>" << value << " = " << atof(value.c_str()) * btcvalue << std::endl;
     }
 }
