@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:35:06 by sgmira            #+#    #+#             */
-/*   Updated: 2023/03/18 22:42:34 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/03/19 13:19:49 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,21 +91,9 @@ int main(int ac, char **av)
         std::string key_date = key.substr(0, key.length() - 1);
         if(datamap.find(key_date) == datamap.end())
         {
-            // std::ofstream outputFile("output.txt");
-            // std::map<std::string, std::string>::iterator a;
-            // for (a = datamap.begin(); a != datamap.end(); a++) {
-            //     outputFile <<"'" <<a->first << "'," << a->second << std::endl;
-            // }
-            // break;
             it = datamap.upper_bound(key_date);
             if(it != datamap.begin())
                 it--;
-            // if(it->first != key_date)
-            // {
-            //     puts("-=-=-=-=-=-=-=-=-=-=-=-=-");
-            //     it--;
-            //     std::cout << it->first << std::endl;
-            // }
             btcvalue = atof(it->second.c_str());
         }
         else

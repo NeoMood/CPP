@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 19:16:35 by sgmira            #+#    #+#             */
-/*   Updated: 2023/03/18 22:54:12 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/03/19 13:17:22 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void sort_and_print(Container& nbrs)
     gettimeofday(&start_time, NULL);
     merge_sort(nbrs.begin(), nbrs.end());
     gettimeofday(&end_time, NULL);
-    long long time_used = (end_time.tv_sec - start_time.tv_sec) * 1000000LL + (end_time.tv_usec - start_time.tv_usec);
-    // double time_used = (double)(end_time.tv_sec - start_time.tv_sec) + (double)(end_time.tv_usec - start_time.tv_usec) / 1000000.0;
+    // long long time_used = (end_time.tv_sec - start_time.tv_sec) * 1000000LL + (end_time.tv_usec - start_time.tv_usec);
+    double time_used = (double)(end_time.tv_sec - start_time.tv_sec) + (double)(end_time.tv_usec - start_time.tv_usec) / 1000000.0;
 
     std::cout << "After: ";
     for (typename Container::iterator it = nbrs.begin(); it != nbrs.end(); ++it) {
@@ -45,7 +45,7 @@ void sort_and_print(Container& nbrs)
     }
     std::cout << "\n";
 
-    std::cout << "The sorting algorithm took " << time_used << " microseconds.\n";
+    std::cout << "The sorting algorithm took " << std::fixed << time_used << " us.\n";
 }
 
 int main(int ac, char **av)
@@ -89,59 +89,3 @@ int main(int ac, char **av)
     
     return 0;
 }
-
-
-// int main(int ac, char **av)
-// {
-//     if(ac < 2)
-//     {
-//         std::cerr << "\033[31mError: Number of arguments is not valid!\033[0m" << std::endl;
-//         return 1;
-//     }
-//     std::vector<int> nbrs;
-
-//     for (int i = 1; i < ac; i++) {
-//         for (const char* c = av[i]; *c != '\0'; c++) {
-//             if (!std::isdigit(*c)) {
-//                 std::cout << "Error: Argument " << av[i] << " is not a digit" << std::endl;
-//                 return 1;
-//             }
-//         }
-
-//         int nbr = std::atoi(av[i]);
-//         if (nbr < 0) {
-//             std::cout << "Error: Argument " << av[i] << " is not a positive number.\n";
-//             return 1;
-//         }
-//         if (std::find(nbrs.begin(), nbrs.end(), nbr) == nbrs.end()) {
-//             nbrs.push_back(nbr);
-//         }
-//         else
-//         {
-//             std::cout << "Error: Argument " << nbr << " is duplicated.\n";
-//             return 1;
-//         }
-//     }
-
-//     std::cout << "Before: ";
-//     for (std::vector<int>::iterator it = nbrs.begin(); it != nbrs.end(); ++it) {
-//         std::cout << *it << " ";
-//     }
-//     std::cout << "\n";
-
-//     struct timeval start_time, end_time;
-//     gettimeofday(&start_time, NULL);
-//     merge_sort(nbrs.begin(), nbrs.end());
-//     gettimeofday(&end_time, NULL);
-//     long long time_used = (end_time.tv_sec - start_time.tv_sec) * 1000000LL + (end_time.tv_usec - start_time.tv_usec);
-    
-//     std::cout << "After: ";
-//     for (std::vector<int>::iterator it = nbrs.begin(); it != nbrs.end(); ++it) {
-//         std::cout << *it << " ";
-//     }
-//     std::cout << "\n";
-    
-//     std::cout << "The sorting algorithm took " << time_used << " microseconds.\n";
-    
-//     return 0;
-// }
