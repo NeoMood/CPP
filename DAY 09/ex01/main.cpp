@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:40:39 by sgmira            #+#    #+#             */
-/*   Updated: 2023/03/17 18:27:15 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/03/19 13:22:31 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int main(int ac, char **av)
                         break;
                 }
                 mystack.push(result);
-                std::cout << a << c << b << " = " << mystack.top() << std::endl;
+                std::cout << a << " " << c << " " << b << " = " << mystack.top() << std::endl;
             }
             else
             {
