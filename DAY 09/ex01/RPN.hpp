@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:43:17 by sgmira            #+#    #+#             */
-/*   Updated: 2023/03/16 18:45:21 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/03/30 22:37:31 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class RPN
 		// Constructors
 		RPN();
 		RPN(const RPN &copy);
-		
 		// Destructor
 		~RPN();
 		
@@ -33,5 +32,6 @@ class RPN
 	private:
 		
 };
+int RPN_process(std::string expression);
 
 #endif
