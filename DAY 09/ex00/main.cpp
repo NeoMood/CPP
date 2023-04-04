@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:35:06 by sgmira            #+#    #+#             */
-/*   Updated: 2023/04/03 02:48:17 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/04/04 17:54:03 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,74 @@ int toInt(std::string number, int& result) {
     return result;
 }
 
-bool isValidValue(std::string str) {
-    std::istringstream iss(str);
-
-    int num;
-    if (iss >> num && iss.eof()) {
-        return num >= 0 && num <= 1000;
+bool isValidValue(std::string& str)
+{
+    std::string::iterator it = str.begin();
+    std::string::iterator end = str.end();
+    int p = false;
+    if (it != end && (*it == '-' ||*it == '+')) 
+        ++it;
+    for (; it != end; ++it)
+    {
+        if (*it == '.') 
+        {
+           if (p) 
+               return false;
+           else
+               p = true;
+        } 
+        else if (!std::isdigit(*it))
+            return false;
     }
-    iss.clear();
-
-    float fnum;
-    if (iss >> fnum && iss.eof()) {
-        return fnum >= 0.0f && fnum <= 1000.0f;
-    }
-
-    return false;
+    return true;
 }
+
+// bool isValidValue(std::string str) {
+//     std::istringstream iss(str);
+
+//     int nb;
+//     if (iss >> nb && iss.eof()) {
+//         return nb >= 0 && nb <= 1000;
+//     }
+//     // std::cout << nb << "--" << std::endl;
+//     iss.clear();
+
+//     float fnb;
+//     if (iss >> fnb && iss.eof()) {
+//         return fnb >= 0.0f && fnb <= 1000.0f;
+//     }
+//     // std::cout << fnb << "--" << std::endl;
+//     return false;
+// }
+// bool isValidValue(std::string str) {
+    
+//     std::istringstream iss(str);
+
+//     int nb;
+//     if (iss >> nb) {
+//         // std::cout << nb << "--" << std::endl;
+//         if (iss.eof()) {
+//             return nb >= 0 && nb <= 1000;
+//         } else {
+//             // There are remaining characters in the stream, so the input string is not a valid numeric value
+//             return false;
+//         }
+//     }
+//     iss.clear();
+
+//     float fnb;
+//     if (iss >> fnb) {
+//         // std::cout << fnb << "++" << std::endl;
+//         if (iss.eof()) {
+//             return fnb >= 0.0f && fnb <= 1000.0f;
+//         } else {
+//             // There are remaining characters in the stream, so the input string is not a valid numeric value
+//             return false;
+//         }
+//     }
+
+//     return false;
+// }
 
 bool isitdigit(std::string str) {
     for (std::string::iterator it = str.begin(); it != str.end(); ++it) {
@@ -192,12 +244,17 @@ int main(int ac, char **av)
         else
             value = line2.substr(delimiter_pos+1);
         value = removeSp(value);
-        if(!isValidValue(value))
+        if(!isValidValue(value) || strtod(value.c_str(), NULL) > 1000 || strtod(value.c_str(), NULL) < 0)
         {
             std::cerr << "\033[31mError: Value is not valid\033[0m" << std::endl;
             continue;
         }
         key = removeSp(key);
+        if(key.size() != 10)
+        {
+            std::cerr << "\033[31mError: DATE Values not valid\033[0m" << std::endl;
+            continue;
+        }
         delimiter_pos = key.find("-");
         std::string year = key.substr(0, delimiter_pos);
         std::string rest = key.substr(delimiter_pos+1);
