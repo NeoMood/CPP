@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:43:20 by sgmira            #+#    #+#             */
-/*   Updated: 2023/04/08 02:11:47 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/04/09 23:40:13 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,17 @@
 // Constructors
 RPN::RPN()
 {
-	std::cout << "\e[0;33mDefault Constructor called of RPN\e[0m" << std::endl;
 }
 
 RPN::RPN(const RPN &copy)
 {
 	*this = copy;
-	std::cout << "\e[0;33mCopy Constructor called of RPN\e[0m" << std::endl;
 }
 
 
 // Destructor
 RPN::~RPN()
 {
-	std::cout << "\e[0;31mDestructor called of RPN\e[0m" << std::endl;
 }
 
 int RPN::RPN_process(std::string expression)

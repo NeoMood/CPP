@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 19:20:05 by sgmira            #+#    #+#             */
-/*   Updated: 2023/04/08 16:16:15 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/04/09 23:38:46 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,17 @@
 // Constructors
 PmergeMe::PmergeMe()
 {
-	std::cout << "\e[0;33mDefault Constructor called of PmergeMe\e[0m" << std::endl;
 }
 
 PmergeMe::PmergeMe(const PmergeMe &copy)
 {
-	(void) copy;
-	std::cout << "\e[0;33mCopy Constructor called of PmergeMe\e[0m" << std::endl;
+	*this = copy;
 }
 
 
 // Destructor
 PmergeMe::~PmergeMe()
 {
-	std::cout << "\e[0;31mDestructor called of PmergeMe\e[0m" << std::endl;
 }
 
 template<typename cont>
@@ -122,7 +119,8 @@ void PmergeMe::parse_n_sort(int ac, char **av)
 // Operators
 PmergeMe & PmergeMe::operator=(const PmergeMe &assign)
 {
-	(void) assign;
+	this->nbrs_vec = assign.nbrs_vec;
+    this->nbrs_deq = assign.nbrs_deq;
 	return *this;
 }
 
