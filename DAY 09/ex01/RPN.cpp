@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:43:20 by sgmira            #+#    #+#             */
-/*   Updated: 2023/03/30 22:37:40 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/04/08 02:11:47 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ RPN::RPN()
 
 RPN::RPN(const RPN &copy)
 {
-	(void) copy;
+	*this = copy;
 	std::cout << "\e[0;33mCopy Constructor called of RPN\e[0m" << std::endl;
 }
 
@@ -31,9 +31,8 @@ RPN::~RPN()
 	std::cout << "\e[0;31mDestructor called of RPN\e[0m" << std::endl;
 }
 
-int RPN_process(std::string expression)
+int RPN::RPN_process(std::string expression)
 {
-    std::stack<int> mystack;
     std::string tmp_str = "";
     int result;
     for (size_t i = 0; i < expression.size(); ++i) 
@@ -99,7 +98,7 @@ int RPN_process(std::string expression)
 // Operators
 RPN & RPN::operator=(const RPN &assign)
 {
-	(void) assign;
+	this->mystack = assign.mystack;
 	return *this;
 }
 

@@ -73,6 +73,7 @@
     "climits": "cpp",
     "span": "cpp",
     "__cxx_version": "cpp",
-    "list": "cpp"
+    "list": "cpp",
+    "stdio.h": "c"
   }
 }

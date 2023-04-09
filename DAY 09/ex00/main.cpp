@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:35:06 by sgmira            #+#    #+#             */
-/*   Updated: 2023/04/04 17:54:03 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/04/09 01:12:47 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,53 +42,6 @@ bool isValidValue(std::string& str)
     }
     return true;
 }
-
-// bool isValidValue(std::string str) {
-//     std::istringstream iss(str);
-
-//     int nb;
-//     if (iss >> nb && iss.eof()) {
-//         return nb >= 0 && nb <= 1000;
-//     }
-//     // std::cout << nb << "--" << std::endl;
-//     iss.clear();
-
-//     float fnb;
-//     if (iss >> fnb && iss.eof()) {
-//         return fnb >= 0.0f && fnb <= 1000.0f;
-//     }
-//     // std::cout << fnb << "--" << std::endl;
-//     return false;
-// }
-// bool isValidValue(std::string str) {
-    
-//     std::istringstream iss(str);
-
-//     int nb;
-//     if (iss >> nb) {
-//         // std::cout << nb << "--" << std::endl;
-//         if (iss.eof()) {
-//             return nb >= 0 && nb <= 1000;
-//         } else {
-//             // There are remaining characters in the stream, so the input string is not a valid numeric value
-//             return false;
-//         }
-//     }
-//     iss.clear();
-
-//     float fnb;
-//     if (iss >> fnb) {
-//         // std::cout << fnb << "++" << std::endl;
-//         if (iss.eof()) {
-//             return fnb >= 0.0f && fnb <= 1000.0f;
-//         } else {
-//             // There are remaining characters in the stream, so the input string is not a valid numeric value
-//             return false;
-//         }
-//     }
-
-//     return false;
-// }
 
 bool isitdigit(std::string str) {
     for (std::string::iterator it = str.begin(); it != str.end(); ++it) {
@@ -190,49 +143,48 @@ bool isValidDate(const std::string& year, const std::string& month, const std::s
     return true;
 }
 
-
-int main(int ac, char **av)
+std::map<std::string, std::string> get_datamap()
 {
-    size_t delimiter_pos;
-    if(ac != 2)
-    {
-        std::cerr << "\033[31mError: Number of arguments is not valid!\033[0m" << std::endl;
-        return 1;
-    }
-    
     std::ifstream database("data.csv");
     if (!database.is_open())
     {
         std::cerr << "\033[31mError: Failed to open database file\033[0m" << std::endl;
-        return 1;
+        exit(1);
     }
-    
+
     std::map<std::string, std::string> datamap;
     std::string line;
+    size_t delimiter_pos;
     while (std::getline(database, line)) 
     {
         delimiter_pos = line.find(",");
         if (delimiter_pos == std::string::npos) {
             std::cerr << "\033[31mError: Invalid line format: " << line << "\033[0m" << std::endl;
-            return 1;
+            exit(1);
         }
         std::string key = line.substr(0, delimiter_pos);
         std::string value = line.substr(delimiter_pos+1);
         datamap[key] = value;
     }
     database.close();
+    return(datamap);
+}
+
+void parse_input(std::map<std::string, std::string> datamap, char **av)
+{
     std::ifstream userdata(av[1]);
     if (!userdata.is_open())
     { 
         std::cerr << "\033[31mError: Failed to open userdata file\033[0m" << std::endl;
-        return 1;
+        exit (1);
     }
 
     std::string line2;
+    size_t delimiter_pos;
     std::getline(userdata, line2);
     if (line2 != "date | value") {
         std::cerr << "Error: first line should be 'date | value'" << std::endl;
-        return 1;
+        exit (1);
     }
     while(std::getline(userdata, line2))
     {
@@ -273,4 +225,19 @@ int main(int ac, char **av)
         double result = btc_calc(datamap,  key,  value);
         std::cout  << result << std::endl;
     }
+}
+
+int main(int ac, char **av)
+{
+    BitcoinExchange btc;
+    if(ac != 2)
+    {
+        std::cerr << "\033[31mError: Number of arguments is not valid!\033[0m" << std::endl;
+        return 1;
+    }
+    
+    
+    std::map<std::string, std::string> datamap = get_datamap();
+    parse_input(datamap, av);
+    return(0);
 }

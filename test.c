@@ -1,6 +1,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <stdio.h>
 
 int ft_putstr(char *str, char *arg)
 {
@@ -31,6 +32,7 @@ int main(int ac, char **av, char **env)
 
     i = 0;
     tmp_fd = dup(STDIN_FILENO);
+        printf("%s", av[1]);
     while (av[i] && av[i + 1])
     {
         av = &av[i + 1];
