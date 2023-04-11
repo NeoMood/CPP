@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 13:19:18 by sgmira            #+#    #+#             */
-/*   Updated: 2023/04/09 23:39:22 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/04/11 00:45:29 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
     *this = copy;
 }
 
-
 // Destructor
 BitcoinExchange::~BitcoinExchange()
 {
 }
-
 
 int toInt(std::string number, int& result) {
     std::stringstream ss(number);
@@ -86,11 +84,11 @@ std::string removeSp(std::string str) {
     return result;
 }
 
-bool isValidDate(const std::string& year, const std::string& month, const std::string& day) {
+bool isValidDate(std::string& year, std::string& month, std::string& day) {
     int res;
     try {
         int year_val = toInt(year, res);
-        if (year_val < 0 || year_val > 9999) {
+        if (!isValidValue(year) || year_val < 0 || year_val > 9999) {
             return false;
         }
     } catch (...) {
@@ -99,7 +97,7 @@ bool isValidDate(const std::string& year, const std::string& month, const std::s
 
     try {
         int month_val = toInt(month, res);
-        if (month_val < 1 || month_val > 12) {
+        if (!isValidValue(month) || month_val < 1 || month_val > 12) {
             return false;
         }
     } catch (...) {
@@ -108,7 +106,7 @@ bool isValidDate(const std::string& year, const std::string& month, const std::s
 
     try {
         int day_val = toInt(day, res);
-        if (day_val < 1 || day_val > 31) {
+        if (!isValidValue(day) || day_val < 1 || day_val > 31) {
             return false;
         }
 
@@ -154,7 +152,7 @@ void BitcoinExchange::parse_input(char **av)
     size_t delimiter_pos;
     std::getline(userdata, line2);
     if (line2 != "date | value") {
-        std::cerr << "Error: first line should be 'date | value'" << std::endl;
+        std::cerr << "\033[31mError: first line should be 'date | value'\033[0m" << std::endl;
         exit (1);
     }
     while(std::getline(userdata, line2))
@@ -186,6 +184,7 @@ void BitcoinExchange::parse_input(char **av)
         rest = rest.substr(delimiter_pos+1);
         delimiter_pos = rest.find("-");
         std::string day = rest.substr(0, delimiter_pos);
+        std::cout << "|" << day << "|" << std::endl;
         if(!isValidDate(year, month, day))
         {
             std::cerr << "\033[31mError: DATE Values are not valid\033[0m" << std::endl;

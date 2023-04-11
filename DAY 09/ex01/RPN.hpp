@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:43:17 by sgmira            #+#    #+#             */
-/*   Updated: 2023/04/08 16:25:43 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/04/10 23:58:04 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class RPN
 		~RPN();
 		RPN & operator=(const RPN &assign);
 		int RPN_process(std::string expression);
+		std::stack<int> get_mystack();
 		
 	private:
 		std::stack<int> mystack;

@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:43:20 by sgmira            #+#    #+#             */
-/*   Updated: 2023/04/09 23:40:13 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/04/10 23:58:18 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,11 @@ int RPN::RPN_process(std::string expression)
         }
     }
     return mystack.top();
+}
+
+std::stack<int> RPN::get_mystack()
+{
+    return this->mystack;
 }
 
 // Operators

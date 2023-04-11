@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:39:12 by sgmira            #+#    #+#             */
-/*   Updated: 2023/04/09 18:26:26 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/04/11 00:44:54 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class BitcoinExchange
 		std::map<std::string, std::string> datamap;
 };
 
-bool isValidDate(const std::string& year, const std::string& month, const std::string& day);
+bool isValidDate(std::string& year, std::string& month, std::string& day);
 std::string removeSp(std::string str);
 double btc_calc(std::map<std::string, std::string> datamap,  std::string key,  std::string value);
 bool isValidValue(std::string& str);
