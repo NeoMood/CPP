@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 19:20:05 by sgmira            #+#    #+#             */
-/*   Updated: 2023/04/09 23:38:46 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/04/12 17:44:25 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void merge_sort(container &ctn, Iter first, Iter last)
         container tmp;
         for(Iter it = first; it != last; ++it)
             tmp.push_back(*it);
-        insertionSort(tmp);
+        insertionSort(ctn);
         std::copy(tmp.begin(), tmp.end(), first);
     }
 }

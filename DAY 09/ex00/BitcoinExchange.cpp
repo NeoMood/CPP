@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 13:19:18 by sgmira            #+#    #+#             */
-/*   Updated: 2023/04/11 00:45:29 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/04/11 16:57:45 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,40 @@ std::string removeSp(std::string str) {
     return result;
 }
 
+bool isValidValue2(std::string& str)
+{
+    bool p = false;
+    for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
+    {
+        if (*it == '.')
+        {
+            if (p || str.back() == '.') {
+                return false;
+            }
+            p = true;
+        }
+        else if (!isdigit(*it))
+        {
+            return false;
+        }
+    }
+    if (str.empty() || str[0] == '.' || str.back() == '.') {
+        return false;
+    }
+    if (p && (str[0] == '0' || str.back() == '0')) {
+        return false;
+    }
+    if (str.find_first_not_of("0123456789.-") != std::string::npos) {
+        return false;
+    }
+    return true;
+}
+
 bool isValidDate(std::string& year, std::string& month, std::string& day) {
     int res;
     try {
         int year_val = toInt(year, res);
-        if (!isValidValue(year) || year_val < 0 || year_val > 9999) {
+        if (!isValidValue2(year) || year_val < 0 || year_val > 9999) {
             return false;
         }
     } catch (...) {
@@ -97,7 +126,7 @@ bool isValidDate(std::string& year, std::string& month, std::string& day) {
 
     try {
         int month_val = toInt(month, res);
-        if (!isValidValue(month) || month_val < 1 || month_val > 12) {
+        if (!isValidValue2(month) || month_val < 1 || month_val > 12) {
             return false;
         }
     } catch (...) {
@@ -106,7 +135,7 @@ bool isValidDate(std::string& year, std::string& month, std::string& day) {
 
     try {
         int day_val = toInt(day, res);
-        if (!isValidValue(day) || day_val < 1 || day_val > 31) {
+        if (!isValidValue2(day) || day_val < 1 || day_val > 31) {
             return false;
         }
 
@@ -184,7 +213,6 @@ void BitcoinExchange::parse_input(char **av)
         rest = rest.substr(delimiter_pos+1);
         delimiter_pos = rest.find("-");
         std::string day = rest.substr(0, delimiter_pos);
-        std::cout << "|" << day << "|" << std::endl;
         if(!isValidDate(year, month, day))
         {
             std::cerr << "\033[31mError: DATE Values are not valid\033[0m" << std::endl;
@@ -206,7 +234,6 @@ void BitcoinExchange::get_datamap(void)
         exit(1);
     }
 
-    // std::map<std::string, std::string> datamap;
     std::string line;
     size_t delimiter_pos;
     while (std::getline(database, line)) 

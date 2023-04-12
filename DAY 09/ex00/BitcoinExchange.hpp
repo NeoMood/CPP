@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:39:12 by sgmira            #+#    #+#             */
-/*   Updated: 2023/04/11 00:44:54 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/04/11 16:53:43 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ bool isValidDate(std::string& year, std::string& month, std::string& day);
 std::string removeSp(std::string str);
 double btc_calc(std::map<std::string, std::string> datamap,  std::string key,  std::string value);
 bool isValidValue(std::string& str);
+bool isValidValue2(std::string& str);
 int toInt(std::string number, int& result);
 
 #endif
