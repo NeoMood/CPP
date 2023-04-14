@@ -1,1 +1,0 @@
-alias dtm='python3  ~/Applications/test.py'

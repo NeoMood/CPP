@@ -6,7 +6,7 @@
 /*   By: sgmira <sgmira@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:30:51 by sgmira            #+#    #+#             */
-/*   Updated: 2023/02/16 22:25:29 by sgmira           ###   ########.fr       */
+/*   Updated: 2023/04/14 17:51:10 by sgmira           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@
 //     return 0;
 // }
 
+void ft()
+{
+    system("leaks animal");
+}
+
 int main()
 {
     const Animal* j = new Dog();
@@ -36,8 +41,13 @@ int main()
 
     Dog tmp = basic;
     tmp.setType("dog2");
+    Dog dg1;
+    Dog dg2;
+
+    dg1 = dg2;
 
     std::cout << "I'm a " << basic.getType() << " " << std::endl;
     std::cout << "I'm a " << tmp.getType() << " " << std::endl; 
-    std::cout << "I'm a " << j->getType() << " " << std::endl; 
+    std::cout << "I'm a " << j->getType() << " " << std::endl;
+    atexit(ft);
 }
